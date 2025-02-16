@@ -1,0 +1,99 @@
+.projects-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.featured-project {
+  margin-bottom: 4rem;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .iframe-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%; // 16:9 Aspect Ratio
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  }
+
+  .project-info {
+    text-align: center;
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: var(--ion-color-medium);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .tech-stack {
+      margin-bottom: 1.5rem;
+
+      ion-chip {
+        margin: 0.3rem;
+      }
+    }
+  }
+}
+
+.other-projects {
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  ion-card {
+    margin: 1rem;
+    border-radius: 12px;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    ion-card-header {
+      ion-card-title {
+        font-size: 1.3rem;
+      }
+    }
+
+    ion-card-content {
+      p {
+        margin-bottom: 1rem;
+        color: var(--ion-color-medium);
+      }
+
+      .tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .iframe-container {
+    padding-top: 75%; // Ajuste para melhor visualização em mobile
+  }
+}

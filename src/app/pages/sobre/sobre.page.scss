@@ -1,0 +1,133 @@
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+.profile-image {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 2rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.intro-section {
+  text-align: center;
+  margin-bottom: 3rem;
+
+  ion-img {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+    color: var(--ion-color-medium);
+  }
+}
+
+.bio-section {
+  margin-bottom: 3rem;
+
+  h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--ion-color-dark);
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--ion-color-medium);
+    margin-bottom: 2rem;
+  }
+}
+
+.timeline {
+  .timeline-item {
+    display: flex;
+    margin-bottom: 2rem;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 70px;
+      top: 0;
+      bottom: -2rem;
+      width: 2px;
+      background: var(--ion-color-light);
+    }
+
+    &:last-child::before {
+      display: none;
+    }
+
+    .year {
+      min-width: 70px;
+      font-weight: bold;
+      color: var(--ion-color-primary);
+    }
+
+    .content {
+      padding-left: 2rem;
+
+      h4 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        color: var(--ion-color-dark);
+      }
+
+      p {
+        margin: 0;
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+.interests-section {
+  h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  ion-card {
+    margin: 0.5rem;
+    border-radius: 12px;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    ion-card-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 1.5rem;
+
+      ion-icon {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: var(--ion-color-primary);
+      }
+
+      h4 {
+        margin: 0;
+        font-size: 1.1rem;
+        color: var(--ion-color-dark);
+      }
+    }
+  }
+}

@@ -1,32 +1,47 @@
 .hero-section {
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 
   .profile-image {
-    width: 150px;
-    height: 150px;
-    margin: 0 auto 1rem;
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 2rem;
+    border-radius: 50%;
+    object-fit: cover;
   }
 
   h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: bold;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    color: #ffffff !important;
   }
 
   h2 {
-    font-size: 1.2rem;
-    color: var(--ion-color-medium);
-    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    color: #ffffff !important;
+    margin-bottom: 2rem;
   }
 }
 
 .skills-section {
-  padding: 1rem;
+  padding: 2rem;
+  text-align: center;
+  ion-grid{
 
+    ion-row{
+      justify-content: center;
+    }
+  }
   h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: #ffffff !important;
   }
 
   ion-card {
@@ -54,18 +69,22 @@
         margin: 0;
         font-size: 1rem;
         font-weight: 500;
+        color: #ffffff !important;
       }
     }
   }
 }
 
 .social-links {
+  margin-top: 2rem;
+
   ion-button {
-    --padding-start: 0.5rem;
-    --padding-end: 0.5rem;
+    --padding-start: 1rem;
+    --padding-end: 1rem;
+    margin: 0 0.5rem;
 
     ion-icon {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
     }
   }
 }
@@ -88,17 +107,17 @@ ion-icon[name="logo-ionic"] {
 }
 
 .contact-section {
-  padding: 2rem 1rem;
+  padding: 4rem 2rem;
   text-align: center;
 
   h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
-    color: var(--ion-color-dark);
+    color: #ffffff !important;
   }
 
   p {
-    color: var(--ion-color-medium);
+    color: #ffffff !important;
     margin-bottom: 1.5rem;
   }
 
@@ -110,6 +129,7 @@ ion-icon[name="logo-ionic"] {
 
     ion-card-content {
       padding: 1.5rem;
+      color: #ffffff !important;
 
       ion-button {
         margin: 0.5rem 0;

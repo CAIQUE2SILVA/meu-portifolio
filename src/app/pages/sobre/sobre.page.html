@@ -1,13 +1,77 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>sobre</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Sobre Mim</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">sobre</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <div class="about-container">
+    <section class="intro-section">
+      <ion-avatar class="profile-image">
+        <img src="assets/imagens/foto.jpg" alt="Sua foto">
+      </ion-avatar>      <h1>Caique Silva</h1>
+      <h2>Desenvolvedor Front-end | Explorando Back-end</h2>
+    </section>
+
+    <section class="bio-section">
+      <h3>Minha História</h3>
+      <p>
+        Sou desenvolvedor com 3 anos de experiência, especializado em Angular e tecnologias front-end. Sempre fui apaixonado por tecnologia e desenvolvimento de software, buscando criar interfaces intuitivas e eficientes. Atualmente, estou expandindo meus conhecimentos no back-end para me tornar um desenvolvedor mais completo e enfrentar novos desafios no mercado de tecnologia.
+      </p>
+
+      <h3>Experiência</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="year">2024</div>
+          <div class="content">
+            <h4>Desenvolvedor Front-end</h4>
+            <p>Atuando com Angular 17 e 18, desenvolvendo aplicações dinâmicas, utilizando Angular Animations e explorando integrações com APIs para melhorar a experiência do usuário.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="year">2023</div>
+          <div class="content">
+            <h4>Desenvolvedor Front-end Júnior</h4>
+            <p>Trabalhei no desenvolvimento de sistemas internos, criando dashboards interativos e melhorando a usabilidade das aplicações da empresa.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="interests-section">
+      <h3>Interesses</h3>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6" size-md="4">
+            <ion-card>
+              <ion-card-content>
+                <ion-icon name="code-outline"></ion-icon>
+                <h4>Desenvolvimento Web</h4>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6" size-md="4">
+            <ion-card>
+              <ion-card-content>
+                <ion-icon name="phone-portrait-outline"></ion-icon>
+                <h4>Mobile</h4>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6" size-md="4">
+            <ion-card>
+              <ion-card-content>
+                <ion-icon name="server-outline"></ion-icon>
+                <h4>Backend</h4>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </section>
+  </div>
 </ion-content>

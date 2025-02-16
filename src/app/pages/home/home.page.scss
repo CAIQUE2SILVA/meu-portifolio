@@ -1,0 +1,132 @@
+.hero-section {
+  text-align: center;
+  padding: 2rem 1rem;
+
+  .profile-image {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    color: var(--ion-color-medium);
+    margin-bottom: 1rem;
+  }
+}
+
+.skills-section {
+  padding: 1rem;
+
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  ion-card {
+    margin: 8px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    ion-card-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 16px;
+
+      ion-icon {
+        font-size: 2.5rem;
+        margin-bottom: 8px;
+      }
+
+      p {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.social-links {
+  ion-button {
+    --padding-start: 0.5rem;
+    --padding-end: 0.5rem;
+
+    ion-icon {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+// Cores específicas para os ícones
+ion-icon[name="logo-angular"] {
+  color: #dd0031;
+}
+
+ion-icon[name="bootstrap-outline"] {
+  color: #7952b3;
+}
+
+ion-icon[name="logo-react"] {
+  color: #61dafb;
+}
+
+ion-icon[name="logo-ionic"] {
+  color: #3880ff;
+}
+
+.contact-section {
+  padding: 2rem 1rem;
+  text-align: center;
+
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--ion-color-dark);
+  }
+
+  p {
+    color: var(--ion-color-medium);
+    margin-bottom: 1.5rem;
+  }
+
+  ion-card {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    ion-card-content {
+      padding: 1.5rem;
+
+      ion-button {
+        margin: 0.5rem 0;
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+// Adicione aos ícones específicos
+ion-icon[name="logo-whatsapp"] {
+  color: #25D366;
+}

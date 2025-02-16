@@ -1,0 +1,89 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Início</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="hero-section">
+    <ion-avatar class="profile-image">
+      <!-- Adicione sua foto aqui -->
+      <img src="assets/imagens/foto.jpg" alt="Sua foto">
+    </ion-avatar>
+
+    <h1>Caique Nonato</h1>
+    <h2>Desenvolvedor Front End</h2>
+
+    <div class="social-links">
+      <ion-button fill="clear" href="https://github.com/CAIQUE2SILVA" target="_blank">
+        <ion-icon slot="icon-only" name="logo-github"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" href="https://www.linkedin.com/in/caique-nonato-da-silva-218aa988/" target="_blank">
+        <ion-icon slot="icon-only" name="logo-linkedin"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" (click)="abrirWhatsApp()">
+        <ion-icon slot="icon-only" name="logo-whatsapp"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+
+  <div class="skills-section">
+    <h3>Minhas Habilidades</h3>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" size-md="3">
+          <ion-card>
+            <ion-card-content>
+              <ion-icon name="logo-angular" color="danger"></ion-icon>
+              <p>Angular</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+
+        <ion-col size="6" size-md="3">
+          <ion-card>
+            <ion-card-content>
+              <ion-icon name="logo-ionic" color="primary"></ion-icon>
+              <p>Ionic</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6" size-md="3">
+          <ion-card>
+            <ion-card-content>
+              <ion-icon name="logo-react" color="primary"></ion-icon>
+              <p>React</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class="contact-section">
+    <h3>Entre em Contato</h3>
+    <p>Vamos conversar sobre seu projeto!</p>
+
+    <ion-card>
+      <ion-card-content>
+        <ion-button expand="block" (click)="enviarEmail()">
+          <ion-icon name="mail-outline" slot="start"></ion-icon>
+          Enviar E-mail
+        </ion-button>
+
+        <ion-button expand="block" (click)="abrirWhatsApp()" color="success">
+          <ion-icon name="logo-whatsapp" slot="start"></ion-icon>
+          Enviar Mensagem
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+
+
+
+
+

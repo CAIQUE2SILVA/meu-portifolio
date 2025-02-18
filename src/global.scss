@@ -120,7 +120,7 @@ ion-menu {
   }
 
   ion-toolbar {
-    --background: #1a1a1a !important;
+    --background: #000000 !important;
     --color: #ffffff !important;
   }
 }
@@ -208,7 +208,7 @@ ion-button {
 // Ajustando o header/toolbar para o tema escuro
 ion-header {
   ion-toolbar {
-    --background: #1a1a1a !important;
+    --background: #000000 !important;
     --color: #ffffff !important;
 
     ion-title {

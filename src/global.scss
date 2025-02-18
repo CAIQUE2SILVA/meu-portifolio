@@ -112,7 +112,7 @@ ion-menu {
   }
 
   ion-item {
-    --color: #ffffff;
+    --color: #000000 !important;
 
     ion-label {
       color: #ffffff !important;
@@ -220,7 +220,7 @@ ion-header {
     }
 
     ion-buttons {
-      color: #ffffff !important;
+      color: #000000 !important;
     }
   }
 }

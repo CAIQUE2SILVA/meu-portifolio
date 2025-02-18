@@ -118,6 +118,11 @@ ion-menu {
       color: #ffffff !important;
     }
   }
+
+  ion-toolbar {
+    --background: #1a1a1a !important;
+    --color: #ffffff !important;
+  }
 }
 
 // Efeito de brilho sutil nos botões
@@ -196,6 +201,26 @@ ion-button {
           color: #ffffff !important;
         }
       }
+    }
+  }
+}
+
+// Ajustando o header/toolbar para o tema escuro
+ion-header {
+  ion-toolbar {
+    --background: #1a1a1a !important;
+    --color: #ffffff !important;
+
+    ion-title {
+      color: #ffffff !important;
+    }
+
+    ion-menu-button {
+      color: #ffffff !important;
+    }
+
+    ion-buttons {
+      color: #ffffff !important;
     }
   }
 }

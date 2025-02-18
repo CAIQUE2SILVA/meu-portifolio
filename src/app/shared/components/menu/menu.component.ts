@@ -36,8 +36,6 @@ import {
     IonIcon,
     IonTitle,
     IonMenu,
-    IonMenuButton,
-    IonButtons,
     RouterLink
   ],
 })

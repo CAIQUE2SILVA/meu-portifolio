@@ -6,7 +6,7 @@ Portfolio profissional interativo desenvolvido com **Angular**, **Ionic** e **Ca
 
 ## Demonstracao
 
-**Acesse em:** [Seu portfólio aqui](https://caique-portifolio.netlify.app/home) *(em desenvolvimento)*
+**Acesse em:** [Seu portfólio aqui](https://caique-portifolio.netlify.app/home) 
 ## Tecnologias Utilizadas
 
 ### Frontend

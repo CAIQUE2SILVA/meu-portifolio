@@ -6,8 +6,7 @@ Portfolio profissional interativo desenvolvido com **Angular**, **Ionic** e **Ca
 
 ## Demonstracao
 
-**Acesse em:** [Seu portifolio aqui](https://seu-dominio.com) *(em desenvolvimento)*
-
+**Acesse em:** [Seu portfólio aqui](https://caique-portifolio.netlify.app/home) *(em desenvolvimento)*
 ## Tecnologias Utilizadas
 
 ### Frontend
@@ -126,9 +125,9 @@ Sou desenvolvedor Full-Stack apaixonado por criar experiencias web incriveis. In
 
 ## Conecte-se comigo
 
-- LinkedIn: [Link do seu LinkedIn]
+- LinkedIn: [https://www.linkedin.com/in/caique-nonato-da-silva-218aa988/]
 - GitHub: @CAIQUE2SILVA
-- Email: caique2silva@example.com
+- Email: Caique2silva@gmail.com
 
 ## Contribuicoes
 

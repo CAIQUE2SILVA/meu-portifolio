@@ -6,7 +6,7 @@ Portfolio profissional interativo desenvolvido com **Angular**, **Ionic** e **Ca
 
 ## Demonstracao
 
-**Acesse em:** [Meu Portifolip](https://caique-portifolio.netlify.app/home)
+**Acesse em:** [Meu Portifolio](https://caique-portifolio.netlify.app/home)
 
 ### Frontend
 - **Angular 17+** - Framework TypeScript para aplicacoes web

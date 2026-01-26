@@ -1,14 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpHeaders, provideHttpClient } from '@angular/common/http';
-import { Component, inject, signal } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, Validators } from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Component, signal } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-contato',
   standalone: true,
-  imports: [CommonModule, FormsModule],
-  providers: [HttpClient],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './contato.component.html',
   styleUrl: './contato.component.scss'
 })
@@ -29,6 +28,8 @@ export class ContatoComponent {
 
   onSubmit(event: Event) {
     event.preventDefault();
+    if (this.contactForm.invalid) return;
+
     const formData = new URLSearchParams();
     formData.set('form-name', 'contact');
     formData.set('nome', this.contactForm.value.nome || '');
@@ -36,21 +37,23 @@ export class ContatoComponent {
     formData.set('assunto', this.contactForm.value.assunto || '');
     formData.set('body', this.contactForm.value.body || '');
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/x-www-form-urlencoded'
-    });
-
-    this.http.post('/', formData.toString(), { headers, responseType: 'text' })
-    .pipe(catchError((err) => {
-      if (err.status === 404) {
-        console.log('✅ Netlify Form enviado com sucesso!');
-        return of('success');
-      }
-      throw err;
-    }))
+    this.http.post('/', formData.toString(), {
+      headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' }),
+      responseType: 'text'
+    })
+    .pipe(
+      catchError(err => {
+        if (err.status === 404) {
+          console.log('✅ Netlify Form enviado com sucesso!');
+          return of('success');
+        }
+        throw err;
+      })
+    )
     .subscribe(() => {
-      this.submitted.set(true);
       this.contactForm.reset();
+      this.successMsg.set('success');
     });
   }
+
 }

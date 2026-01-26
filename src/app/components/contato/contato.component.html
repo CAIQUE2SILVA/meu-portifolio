@@ -24,30 +24,32 @@
         </div>
       </div>
 
-      <div>
-        <form name="contact" method="POST" netlify hidden>
-          <div>
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" [(ngModel)]="contactForm.value.nome" required>
-          </div>
-          <div>
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" [(ngModel)]="contactForm.value.email" required>
-          </div>
-          <div>
-          <input type="hidden" name="form-name" value="contact" />
-            <label for="assunto">Assunto:</label>
-            <input type="text" id="assunto" name="assunto" [(ngModel)]="contactForm.value.assunto" required>
-          </div>
-          <div>
-            <label for="body">Mensagem:</label>
-            <textarea id="body" name="body" [(ngModel)]="contactForm.value.body" required></textarea>
-          </div>
-        </form>
-        <button type="submit" (click)="onSubmit($event)">Enviar Mensagem</button>
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit($event)">
+        <div>
+          <label for="nome">Nome:</label>
+          <input id="nome" type="text" formControlName="nome" required />
+        </div>
+
+        <div>
+          <label for="email">E-mail:</label>
+          <input id="email" type="email" formControlName="email" required />
+        </div>
+
+        <div>
+          <label for="assunto">Assunto:</label>
+          <input id="assunto" type="text" formControlName="assunto" required />
+        </div>
+
+        <div>
+          <label for="body">Mensagem:</label>
+          <textarea id="body" formControlName="body" required></textarea>
+        </div>
+
+        <button type="submit">Enviar Mensagem</button>
+
         <p *ngIf="successMsg()" role="status">{{ successMsg() }}</p>
         <p *ngIf="errorMsg()" role="alert">{{ errorMsg() }}</p>
-      </div>
+      </form>
     </div>
   </div>
 </section>

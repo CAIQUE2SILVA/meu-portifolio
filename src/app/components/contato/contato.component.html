@@ -27,20 +27,20 @@
       <div>
         <form name="contact" method="POST" netlify hidden>
           <div>
-            <label for="nome">Nome</label>
+            <label for="nome">Nome:</label>
             <input type="text" id="nome" name="nome" [(ngModel)]="contactForm.value.nome" required>
           </div>
           <div>
-            <label for="email">E-mail</label>
+            <label for="email">E-mail:</label>
             <input type="email" id="email" name="email" [(ngModel)]="contactForm.value.email" required>
           </div>
           <div>
           <input type="hidden" name="form-name" value="contact" />
-            <label for="assunto">Assunto</label>
+            <label for="assunto">Assunto:</label>
             <input type="text" id="assunto" name="assunto" [(ngModel)]="contactForm.value.assunto" required>
           </div>
           <div>
-            <label for="body">Mensagem</label>
+            <label for="body">Mensagem:</label>
             <textarea id="body" name="body" [(ngModel)]="contactForm.value.body" required></textarea>
           </div>
         </form>

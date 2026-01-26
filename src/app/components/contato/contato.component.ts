@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpHeaders, provideHttpClient } from '@angular/common/http';
 import { Component, inject, signal } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, Validators } from '@angular/forms';
+import { catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-contato',
@@ -39,19 +40,17 @@ export class ContatoComponent {
       'Content-Type': 'application/x-www-form-urlencoded'
     });
 
-    this.http.post('/', formData.toString(), {
-      headers,
-      responseType: 'text'  // Essencial: ignora parse JSON no HTML response
-    }).subscribe({
-      next: (response) => {
-        console.log('Sucesso! Form enviado:', response);
-        this.submitted.set(true);
-        this.contactForm.reset();
-      },
-      error: (error) => {
-        console.warn('Netlify 404 esperado:', error);  // Não trava no 404
-        this.submitted.set(true);  // Assume sucesso
+    this.http.post('/', formData.toString(), { headers, responseType: 'text' })
+    .pipe(catchError((err) => {
+      if (err.status === 404) {
+        console.log('✅ Netlify Form enviado com sucesso!');
+        return of('success');
       }
+      throw err;
+    }))
+    .subscribe(() => {
+      this.submitted.set(true);
+      this.contactForm.reset();
     });
   }
 }

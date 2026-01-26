@@ -1,56 +1,68 @@
 import { CommonModule } from '@angular/common';
-import { Component, signal } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contato',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './contato.component.html',
-  styleUrl: './contato.component.scss'
+  styleUrl: './contato.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContatoComponent {
-  submitting = signal(false);
-  successMsg = signal('');
-  errorMsg = signal('');
+  readonly submitting = signal(false);
+  readonly successMsg = signal('');
+  readonly errorMsg = signal('');
 
-  form = {
-    nome: '',
-    email: '',
-    assunto: '',
-    mensagem: ''
-  };
+  private readonly http = inject(HttpClient);
 
-  async onSubmit(event: Event) {
+  readonly contactForm = new FormGroup({
+    nome: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
+    email: new FormControl('', { nonNullable: true, validators: [Validators.required, Validators.email] }),
+    assunto: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
+    mensagem: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
+  });
+
+  onSubmit(event: Event) {
     event.preventDefault();
     this.successMsg.set('');
     this.errorMsg.set('');
+
+    if (this.contactForm.invalid) {
+      this.contactForm.markAllAsTouched();
+      this.errorMsg.set('Por favor, preencha os campos obrigatórios.');
+      return;
+    }
+
     this.submitting.set(true);
 
-    try {
-      const resp = await fetch('/.netlify/functions/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(this.form),
-      });
+    const payload = this.contactForm.getRawValue();
 
-      if (!resp.ok) {
-        const data = await resp.json().catch(() => null);
-        throw new Error((data && data.error) || 'Não foi possível enviar a mensagem.');
-      }
+    this.http.post<{ ok: boolean; id?: string }>(
+      '/.netlify/functions/contact',
+      payload,
+    ).subscribe({
+      next: () => {
+        this.successMsg.set('Mensagem enviada com sucesso! Vou te responder o quanto antes.');
+        this.contactForm.reset({ nome: '', email: '', assunto: '', mensagem: '' });
+        this.submitting.set(false);
+      },
+      error: (err: HttpErrorResponse) => {
+        const serverMsg =
+          err.error && typeof err.error === 'object' && 'error' in err.error
+            ? String((err.error as { error?: unknown }).error)
+            : null;
 
-      this.successMsg.set('Mensagem enviada com sucesso! Entrarei em contato em breve.');
-      this.form = { nome: '', email: '', assunto: '', mensagem: '' };
-
-      setTimeout(() => this.successMsg.set(''), 5000);
-    } catch (err) {
-      this.errorMsg.set(err instanceof Error ? err.message : 'Erro ao enviar a mensagem.');
-      setTimeout(() => this.errorMsg.set(''), 8000);
-    } finally {
-      this.submitting.set(false);
-    }
+        this.errorMsg.set(serverMsg || 'Não foi possível enviar a mensagem agora. Tente novamente em instantes.');
+        this.submitting.set(false);
+      },
+    });
   }
 
+  get nome() { return this.contactForm.get('nome'); }
+  get email() { return this.contactForm.get('email'); }
+  get assunto() { return this.contactForm.get('assunto'); }
+  get mensagem() { return this.contactForm.get('mensagem'); }
 }

@@ -25,31 +25,59 @@
       </div>
 
       <div>
-        <form (submit)="onSubmit($event)" netlify>
+        <h3>Enviar mensagem</h3>
+        <p>
+          Me conte um pouco sobre o que você precisa. Eu retorno assim que possível.
+        </p>
+
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit($event)" [attr.aria-busy]="submitting()">
           <div>
-            <label>Nome</label>
-            <input type="text" [(ngModel)]="form.nome" name="nome" required>
+            <label for="contato-nome">Nome</label>
+            <input id="contato-nome" name="nome" type="text" autocomplete="name" formControlName="nome" />
+            @if (nome?.touched && nome?.invalid) {
+              <small role="alert">Informe seu nome.</small>
+            }
           </div>
+
           <div>
             <div>
-              <label>E-mail</label>
-              <input type="email" [(ngModel)]="form.email" name="email" required>
+              <label for="contato-email">E-mail</label>
+              <input id="contato-email" name="email" type="email" autocomplete="email" formControlName="email" />
+              @if (email?.touched && email?.invalid) {
+                <small role="alert">Informe um e-mail válido.</small>
+              }
             </div>
             <div>
-              <label>Assunto</label>
-              <input type="text" [(ngModel)]="form.assunto" name="assunto" required>
+              <label for="contato-assunto">Assunto</label>
+              <input id="contato-assunto" name="assunto" type="text" formControlName="assunto" />
+              @if (assunto?.touched && assunto?.invalid) {
+                <small role="alert">Informe o assunto.</small>
+              }
             </div>
           </div>
+
           <div>
-            <label>Mensagem</label>
-            <textarea rows="4" [(ngModel)]="form.mensagem" name="mensagem" required></textarea>
+            <label for="contato-mensagem">Mensagem</label>
+            <textarea id="contato-mensagem" name="mensagem" rows="4" formControlName="mensagem"></textarea>
+            @if (mensagem?.touched && mensagem?.invalid) {
+              <small role="alert">Escreva sua mensagem.</small>
+            }
           </div>
+
           <button type="submit" [disabled]="submitting()">
             {{ submitting() ? 'Enviando...' : 'Enviar Mensagem' }}
           </button>
-          <p *ngIf="successMsg()" role="status">{{ successMsg() }}</p>
-          <p *ngIf="errorMsg()" role="alert">{{ errorMsg() }}</p>
+
+          @if (successMsg()) {
+            <p role="status">{{ successMsg() }}</p>
+          }
+          @if (errorMsg()) {
+            <p role="alert">{{ errorMsg() }}</p>
+          }
         </form>
+        <!-- <button type="submit" (click)="onSubmit($event)">Enviar Mensagem</button>
+        <p *ngIf="successMsg()" role="status">{{ successMsg() }}</p>
+        <p *ngIf="errorMsg()" role="alert">{{ errorMsg() }}</p> -->
       </div>
     </div>
   </div>

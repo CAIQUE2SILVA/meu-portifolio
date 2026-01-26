@@ -1,0 +1,134 @@
+:host {
+  display: block;
+}
+
+section {
+  padding: 80px 16px;
+  background: #0f172a;
+  color: #ffffff;
+  scroll-margin-top: 88px;
+}
+
+section > div {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+section h2 {
+  margin: 0 0 6px;
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+section > div > div:first-child p {
+  margin: 8px 0 0;
+  color: #94a3b8;
+}
+
+section > div > div:last-child {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+}
+
+/* project card */
+section > div > div:last-child > div {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 22px;
+  overflow: hidden;
+}
+
+section > div > div:last-child > div > div {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* card header row */
+section > div > div:last-child > div > div > div:first-child {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+section h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+/* badge */
+section > div > div:last-child > div > div > div:first-child > span {
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(99, 102, 241, 0.18);
+  color: #a5b4fc;
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+section > div > div:last-child > div > div > p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+/* implementation/benefit rows */
+section > div > div:last-child > div > div > div:nth-child(3) {
+  display: grid;
+  gap: 10px;
+}
+
+section > div > div:last-child > div > div > div:nth-child(3) > div {
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+}
+
+section > div > div:last-child > div > div > div:nth-child(3) > div > span:first-child {
+  color: #a5b4fc;
+  font-weight: 900;
+}
+
+section > div > div:last-child > div > div > div:nth-child(3) > div:nth-child(2) > span:first-child {
+  color: #4ade80;
+}
+
+section > div > div:last-child > div > div > div:nth-child(3) > div > span:last-child {
+  color: #e2e8f0;
+}
+
+section > div > div:last-child > div > div > div:last-child {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+section > div > div:last-child > div > div > div:last-child a {
+  color: #a5b4fc;
+  font-weight: 800;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+section > div > div:last-child > div > div > div:last-child a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  section > div > div:last-child {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+

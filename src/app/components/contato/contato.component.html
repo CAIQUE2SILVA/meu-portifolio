@@ -1,0 +1,56 @@
+<section id="contato">
+  <div>
+    <div>
+      <div>
+        <h2>Vamos conversar?</h2>
+        <p>
+          Estou aberto a novas oportunidades e desafios técnicos que exijam excelência em Front-End. Sinta-se à vontade para entrar em contato pelos canais abaixo ou enviando uma mensagem.
+        </p>
+        <div>
+           <div>
+              <div>📍</div>
+              <div>
+                <p>Localização</p>
+                <p>São Paulo, SP - Híbrido / Remoto</p>
+              </div>
+           </div>
+           <div>
+              <div>💼</div>
+              <div>
+                <p>LinkedIn</p>
+                <a href="https://www.linkedin.com/in/caique-nonato-da-silva-218aa988/" target="_blank" rel="noopener noreferrer">/in/caique-nonato-da-silva</a>
+              </div>
+           </div>
+        </div>
+      </div>
+
+      <div>
+        <form (submit)="onSubmit($event)">
+          <div>
+            <label>Nome</label>
+            <input type="text" [(ngModel)]="form.nome" name="nome" required>
+          </div>
+          <div>
+            <div>
+              <label>E-mail</label>
+              <input type="email" [(ngModel)]="form.email" name="email" required>
+            </div>
+            <div>
+              <label>Assunto</label>
+              <input type="text" [(ngModel)]="form.assunto" name="assunto" required>
+            </div>
+          </div>
+          <div>
+            <label>Mensagem</label>
+            <textarea rows="4" [(ngModel)]="form.mensagem" name="mensagem" required></textarea>
+          </div>
+          <button type="submit" [disabled]="submitting()">
+            {{ submitting() ? 'Enviando...' : 'Enviar Mensagem' }}
+          </button>
+          <p *ngIf="successMsg()" role="status">{{ successMsg() }}</p>
+          <p *ngIf="errorMsg()" role="alert">{{ errorMsg() }}</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

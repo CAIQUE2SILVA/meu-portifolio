@@ -1,88 +1,59 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button autoHide="false"></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Início</ion-title>
-  </ion-toolbar>
-</ion-header>
+<div>
+  <app-nav></app-nav>
 
-<ion-content [fullscreen]="true" class="ion-padding">
-  <div class="hero-section">
-    <ion-avatar class="profile-image">
-      <img src="assets/imagens/foto.jpg" alt="Sua foto">
-    </ion-avatar>
-
-    <h1>Caique Nonato</h1>
-    <h2>Desenvolvedor Front End</h2>
-
-    <div class="social-links">
-      <ion-button fill="clear" href="https://github.com/CAIQUE2SILVA" target="_blank">
-        <ion-icon slot="icon-only" name="logo-github"></ion-icon>
-      </ion-button>
-      <ion-button fill="clear" href="https://www.linkedin.com/in/caique-nonato-da-silva-218aa988/" target="_blank">
-        <ion-icon slot="icon-only" name="logo-linkedin"></ion-icon>
-      </ion-button>
-      <ion-button fill="clear" (click)="abrirWhatsApp()">
-        <ion-icon slot="icon-only" name="logo-whatsapp"></ion-icon>
-      </ion-button>
+  <header id="inicio">
+    <div>
+      <div>
+        <h1>
+          Caique Nonato da Silva
+        </h1>
+        <h2>
+          Coordenador de TI / Desenvolvedor | Angular, TypeScript, Ionic
+        </h2>
+        <p>
+          Profissional de TI e desenvolvimento de software com <strong>mais de 5 anos</strong> de experiência em <strong>Coordenação de TI</strong>,
+          <strong>Front-end</strong> e <strong>Suporte Técnico</strong> (N1 a N3), atuando do levantamento de requisitos ao suporte aos usuários.
+        </p>
+        <div>
+          <a [routerLink]="['/home']" fragment="projetos">Ver Projetos</a>
+          <a href="assets/cv/Resume.pdf" target="_blank" rel="noopener noreferrer">Abrir Currículo (PDF)</a>
+          <a href="https://wa.me/5511956386749?text=Ol%C3%A1%2C%20vim%20pelo%20seu%20portf%C3%B3lio%21" target="_blank" rel="noopener noreferrer">
+            Falar no WhatsApp
+          </a>
+        </div>
+      </div>
+      <div>
+         <!-- Placeholder para foto -->
+          <span>
+            <img src="assets/images/foto.jpg" alt="Caique Nonato da Silva">
+          </span>
+      </div>
     </div>
-  </div>
+  </header>
 
-  <div class="skills-section">
-    <h3>Minhas Habilidades</h3>
-    <ion-grid>
-      <ion-row>
-        <ion-col size="6" size-md="3">
-          <ion-card>
-            <ion-card-content>
-              <ion-icon name="logo-angular" color="danger"></ion-icon>
-              <p>Angular</p>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-
-        <ion-col size="6" size-md="3">
-          <ion-card>
-            <ion-card-content>
-              <ion-icon name="logo-ionic" color="primary"></ion-icon>
-              <p>Ionic</p>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-        <ion-col size="6" size-md="3">
-          <ion-card>
-            <ion-card-content>
-              <ion-icon name="logo-react" color="primary"></ion-icon>
-              <p>React</p>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </div>
-
-  <div class="contact-section">
-    <h3>Entre em Contato</h3>
-    <p>Vamos conversar sobre seu projeto!</p>
-
-    <ion-card>
-      <ion-card-content>
-        <ion-button expand="block" (click)="enviarEmail()">
-          <ion-icon name="mail-outline" slot="start"></ion-icon>
-          Enviar E-mail
-        </ion-button>
-
-        <ion-button expand="block" (click)="abrirWhatsApp()" color="success">
-          <ion-icon name="logo-whatsapp" slot="start"></ion-icon>
-          Enviar Mensagem
-        </ion-button>
-      </ion-card-content>
-    </ion-card>
-  </div>
-</ion-content>
+  <!-- SOBRE MIM -->
+  <app-sobre></app-sobre>
 
 
+  <!-- SKILLS -->
+  <app-skills></app-skills>
 
 
+  <!-- EXPERIÊNCIA -->
+  <app-experiencia></app-experiencia>
 
+
+  <!-- PROJETOS EM DESTAQUE -->
+  <app-projetos></app-projetos>
+
+
+  <!-- EDUCAÇÃO -->
+  <app-educacao></app-educacao>
+
+  <!-- CONTATO -->
+  <app-contato></app-contato>
+
+
+  <!-- FOOTER -->
+  <app-footer></app-footer>
+</div>

@@ -1,0 +1,48 @@
+:host {
+  display: block;
+}
+
+footer {
+  padding: 44px 16px;
+  border-top: 1px solid #e2e8f0;
+  background: #ffffff;
+}
+
+footer > div {
+  max-width: 72rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+footer p {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+footer > div > div {
+  display: flex;
+  gap: 18px;
+}
+
+footer a {
+  color: #94a3b8;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #4f46e5;
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  footer > div {
+    flex-direction: row;
+  }
+}
+

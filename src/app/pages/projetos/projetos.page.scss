@@ -2,6 +2,17 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
+  color: #0f172a;
+}
+
+.page-header {
+  margin: 8px 0 20px;
+
+  h1 {
+    font-size: 28px;
+    font-weight: 800;
+    margin: 0;
+  }
 }
 
 .featured-project {
@@ -40,17 +51,13 @@
     }
 
     p {
-      color: var(--ion-color-medium);
+      color: rgba(15, 23, 42, 0.75);
       margin-bottom: 1.5rem;
       line-height: 1.6;
     }
 
     .tech-stack {
       margin-bottom: 1.5rem;
-
-      ion-chip {
-        margin: 0.3rem;
-      }
     }
   }
 }
@@ -62,38 +69,90 @@
     text-align: center;
   }
 
-  ion-card {
-    margin: 1rem;
-    border-radius: 12px;
-    transition: transform 0.2s;
+}
 
-    &:hover {
-      transform: translateY(-5px);
-    }
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
 
-    ion-card-header {
-      ion-card-title {
-        font-size: 1.3rem;
-      }
-    }
+.card {
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 14px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.05);
 
-    ion-card-content {
-      p {
-        margin-bottom: 1rem;
-        color: var(--ion-color-medium);
-      }
-
-      .tech-stack {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-      }
-    }
+  p {
+    color: rgba(15, 23, 42, 0.75);
+    line-height: 1.6;
   }
+}
+
+.card-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+
+  h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 800;
+  }
+}
+
+.muted {
+  margin: 0;
+  color: rgba(15, 23, 42, 0.55);
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  background: rgba(79, 70, 229, 0.08);
+  border: 1px solid rgba(79, 70, 229, 0.12);
+  color: #312e81;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: #4f46e5;
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #4338ca;
 }
 
 @media (max-width: 768px) {
   .iframe-container {
     padding-top: 75%; // Ajuste para melhor visualização em mobile
+  }
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

@@ -1,91 +1,55 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Projetos</ion-title>
-  </ion-toolbar>
-</ion-header>
+<div class="projects-container">
+  <header class="page-header">
+    <h1>Projetos</h1>
+  </header>
 
-<ion-content>
-  <div class="projects-container">
-    <section class="featured-project">
-      <h2>Projeto em Destaque</h2>
-      <div class="iframe-container">
-        <iframe
-          src="https://exclusivasex.com.br/blog"
-          title="Exclusiva Sex Blog"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe>
+  <section class="featured-project">
+    <h2>Projeto em Destaque</h2>
+    <div class="iframe-container">
+      <iframe
+        src="https://exclusivasex.com.br/blog"
+        title="Exclusiva Sex Blog"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <div class="project-info">
+      <h3>Exclusiva Sex Blog</h3>
+      <p>Blog desenvolvido com tecnologias modernas para fornecer uma experiência de usuário otimizada.</p>
+      <div class="tech-stack">
+        <span class="chip">Angular</span>
+        <span class="chip">TypeScript</span>
       </div>
-      <div class="project-info">
-        <h3>Exclusiva Sex Blog</h3>
-        <p>Blog desenvolvido com tecnologias modernas para fornecer uma experiência de usuário otimizada.</p>
+      <a class="btn" href="https://exclusivasex.com.br/blog" target="_blank" rel="noreferrer">Visitar Site</a>
+    </div>
+  </section>
+
+  <section class="other-projects">
+    <h2>Outros Projetos</h2>
+    <div class="grid">
+      <article class="card">
+        <header class="card-header">
+          <h3>Projeto 2</h3>
+          <p class="muted">Web App</p>
+        </header>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
         <div class="tech-stack">
-          <ion-chip>
-            <ion-label>Angular</ion-label>
-          </ion-chip>
-          <ion-chip>
-            <ion-label>Ionic</ion-label>
-          </ion-chip>
-          <ion-chip>
-            <ion-label>TypeScript</ion-label>
-          </ion-chip>
+          <span class="chip">React</span>
+          <span class="chip">Node.js</span>
         </div>
-        <ion-button href="https://exclusivasex.com.br/blog" target="_blank">
-          <ion-icon name="open-outline" slot="start"></ion-icon>
-          Visitar Site
-        </ion-button>
-      </div>
-    </section>
+      </article>
 
-    <section class="other-projects">
-      <h2>Outros Projetos</h2>
-      <ion-grid>
-        <ion-row>
-          <ion-col size="12" size-md="6">
-            <ion-card>
-              <ion-card-header>
-                <ion-card-title>Projeto 2</ion-card-title>
-                <ion-card-subtitle>Web App</ion-card-subtitle>
-              </ion-card-header>
-              <ion-card-content>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
-                <div class="tech-stack">
-                  <ion-chip>
-                    <ion-label>React</ion-label>
-                  </ion-chip>
-                  <ion-chip>
-                    <ion-label>Node.js</ion-label>
-                  </ion-chip>
-                </div>
-              </ion-card-content>
-            </ion-card>
-          </ion-col>
-
-          <ion-col size="12" size-md="6">
-            <ion-card>
-              <ion-card-header>
-                <ion-card-title>Projeto 3</ion-card-title>
-                <ion-card-subtitle>Mobile App</ion-card-subtitle>
-              </ion-card-header>
-              <ion-card-content>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
-                <div class="tech-stack">
-                  <ion-chip>
-                    <ion-label>Ionic</ion-label>
-                  </ion-chip>
-                  <ion-chip>
-                    <ion-label>Firebase</ion-label>
-                  </ion-chip>
-                </div>
-              </ion-card-content>
-            </ion-card>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </section>
-  </div>
-</ion-content>
+      <article class="card">
+        <header class="card-header">
+          <h3>Projeto 3</h3>
+          <p class="muted">Mobile App</p>
+        </header>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
+        <div class="tech-stack">
+          <span class="chip">Firebase</span>
+        </div>
+      </article>
+    </div>
+  </section>
+</div>

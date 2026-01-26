@@ -1,86 +1,32 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import {
-  IonContent,
-  IonHeader,
-  IonTitle,
-  IonToolbar,
-  IonButtons,
-  IonMenuButton,
-  IonIcon,
-  IonGrid,
-  IonCard,
-  IonCardContent,
-  IonButton,
-  IonAvatar,
-  IonRow,
-  IonCol,
-  IonText,
-  IonLabel
-} from '@ionic/angular/standalone';
-import { addIcons } from 'ionicons';
-import {
-  menuOutline,
-  logoGithub,
-  logoLinkedin,
-  logoAngular,
-  logoIonic,
-  logoReact,
-  logoWhatsapp,
-  mailOutline
-} from 'ionicons/icons';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
+
+import { NavComponent } from '../../components/nav/nav.component';
+import { SobreComponent } from '../../components/sobre/sobre.component';
+import { SkillsComponent } from '../../components/skills/skills.component';
+import { ExperienciaComponent } from '../../components/experiencia/experiencia.component';
+import { ProjetosComponent } from '../../components/projetos/projetos.component';
+import { EducacaoComponent } from '../../components/educacao/educacao.component';
+import { ContatoComponent } from '../../components/contato/contato.component';
+import { FooterComponent } from '../../components/footer/footer.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    CommonModule,
-    FormsModule,
-    IonContent,
-    IonHeader,
-    IonTitle,
-    IonToolbar,
-    IonButtons,
-    IonMenuButton,
-    IonIcon,
-    IonGrid,
-    IonCard,
-    IonCardContent,
-    IonButton,
-    IonAvatar,
-    IonRow,
-    IonCol,
-    IonText,
-    IonLabel,
-    IonContent,
+    NavComponent,
+    RouterLink,
+    SobreComponent,
+    SkillsComponent,
+    ExperienciaComponent,
+    ProjetosComponent,
+    EducacaoComponent,
+    ContatoComponent,
+    FooterComponent,
   ]
 })
 export class HomePage {
-  constructor() {
-    addIcons({
-      menuOutline,
-      logoGithub,
-      logoLinkedin,
-      logoAngular,
-      logoIonic,
-      logoReact,
-      logoWhatsapp,
-      mailOutline
-    });
-  }
-
-  // Método para abrir WhatsApp
-  abrirWhatsApp() {
-    const numero = '5511956386749'; // Substitua pelo seu número
-    const mensagem = 'Olá, vim pelo seu portfólio!';
-    window.open(`https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`, '_blank');
-  }
-
-  // Método para enviar email
-  enviarEmail() {
-    window.location.href = 'mailto:caique2silva@gmail.com';
-  }
 }

@@ -1,0 +1,28 @@
+<nav>
+  <div>
+    <span>CN.</span>
+    <div>
+      <a [routerLink]="['/home']" fragment="inicio">Início</a>
+      <a [routerLink]="['/home']" fragment="sobre">Sobre</a>
+      <a [routerLink]="['/home']" fragment="skills">Skills</a>
+      <a [routerLink]="['/home']" fragment="experiencia">Experiência</a>
+      <a [routerLink]="['/home']" fragment="projetos">Projetos</a>
+      <a [routerLink]="['/home']" fragment="contato">Contato</a>
+    </div>
+    <button type="button" aria-label="Abrir menu" [attr.aria-expanded]="mobileOpen()" (click)="toggleMobile()">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+    </button>
+  </div>
+
+  @if (mobileOpen()) {
+    <div data-backdrop (click)="closeMobile()" aria-hidden="true"></div>
+    <div data-mobile-menu>
+      <a [routerLink]="['/home']" fragment="inicio" (click)="closeMobile()">Início</a>
+      <a [routerLink]="['/home']" fragment="sobre" (click)="closeMobile()">Sobre</a>
+      <a [routerLink]="['/home']" fragment="skills" (click)="closeMobile()">Skills</a>
+      <a [routerLink]="['/home']" fragment="experiencia" (click)="closeMobile()">Experiência</a>
+      <a [routerLink]="['/home']" fragment="projetos" (click)="closeMobile()">Projetos</a>
+      <a [routerLink]="['/home']" fragment="contato" (click)="closeMobile()">Contato</a>
+    </div>
+  }
+</nav>

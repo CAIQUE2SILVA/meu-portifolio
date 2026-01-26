@@ -25,7 +25,7 @@
       </div>
 
       <div>
-        <form (submit)="onSubmit($event)">
+        <form (submit)="onSubmit($event)" netlify>
           <div>
             <label>Nome</label>
             <input type="text" [(ngModel)]="form.nome" name="nome" required>

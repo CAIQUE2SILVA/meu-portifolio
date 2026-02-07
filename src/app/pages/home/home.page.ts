@@ -7,7 +7,7 @@ import { SkillsComponent } from '../../components/skills/skills.component';
 import { ExperienciaComponent } from '../../components/experiencia/experiencia.component';
 import { ProjetosComponent } from '../../components/projetos/projetos.component';
 import { EducacaoComponent } from '../../components/educacao/educacao.component';
-import { ContatoComponent } from '../../components/contato/contato.component';
+// import { ContatoComponent } from '../../components/contato/contato.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 
 @Component({
@@ -24,7 +24,7 @@ import { FooterComponent } from '../../components/footer/footer.component';
     ExperienciaComponent,
     ProjetosComponent,
     EducacaoComponent,
-    ContatoComponent,
+    // ContatoComponent,
     FooterComponent,
   ]
 })

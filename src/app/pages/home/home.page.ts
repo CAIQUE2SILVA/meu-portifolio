@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 
@@ -8,13 +8,9 @@ import { SkillsComponent } from '../../components/skills/skills.component';
 import { ExperienciaComponent } from '../../components/experiencia/experiencia.component';
 import { ProjetosComponent } from '../../components/projetos/projetos.component';
 import { EducacaoComponent } from '../../components/educacao/educacao.component';
-// import { ContatoComponent } from '../../components/contato/contato.component';
 import { FooterComponent } from '../../components/footer/footer.component';
-
-const SEO = {
-  title: 'Caique Nonato da Silva | Coordenador de TI & Desenvolvedor Angular',
-  description: 'Portfólio de Caique Nonato da Silva — Coordenador de TI e Desenvolvedor com mais de 5 anos de experiência em Angular, TypeScript, Ionic, Front-end e Suporte Técnico. Confira projetos e currículo.',
-};
+import { LanguageService } from '../../core/i18n/language.service';
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
 
 @Component({
   selector: 'app-home',
@@ -30,16 +26,28 @@ const SEO = {
     ExperienciaComponent,
     ProjetosComponent,
     EducacaoComponent,
-    // ContatoComponent,
     FooterComponent,
-  ]
+    TranslatePipe,
+  ],
 })
-export class HomePage implements OnInit {
+export class HomePage {
   private readonly title = inject(Title);
   private readonly meta = inject(Meta);
+  private readonly language = inject(LanguageService);
 
-  ngOnInit(): void {
-    this.title.setTitle(SEO.title);
-    this.meta.updateTag({ name: 'description', content: SEO.description });
+  constructor() {
+    effect(() => {
+      if (!this.language.ready()) {
+        return;
+      }
+
+      this.language.lang();
+      this.title.setTitle(this.language.t('seo.title'));
+      this.meta.updateTag({ name: 'description', content: this.language.t('seo.description') });
+      this.meta.updateTag({ property: 'og:title', content: this.language.t('seo.title') });
+      this.meta.updateTag({ property: 'og:description', content: this.language.t('seo.description') });
+      this.meta.updateTag({ name: 'twitter:title', content: this.language.t('seo.title') });
+      this.meta.updateTag({ name: 'twitter:description', content: this.language.t('seo.description') });
+    });
   }
 }

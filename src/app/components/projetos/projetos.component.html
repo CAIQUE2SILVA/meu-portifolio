@@ -1,8 +1,8 @@
 <section id="projetos">
   <div>
     <div>
-      <h2>Projetos em Destaque</h2>
-      <p>Alguns projetos públicos do meu GitHub (com código e, quando disponível, demo online).</p>
+      <h2>{{ 'projetos.title' | t }}</h2>
+      <p>{{ 'projetos.subtitle' | t }}</p>
     </div>
 
     <div>
@@ -10,26 +10,26 @@
         <div>
           <div>
             <div>
-              <h3>{{ project.titleKey }}</h3>
+              <h3>{{ project.titleKey | t }}</h3>
               <span>{{ project.stack.join(' · ') }}</span>
             </div>
-            <p>{{ project.descriptionKey }}</p>
+            <p>{{ project.descriptionKey | t }}</p>
             <div>
               <div>
-                <span>Implementação:</span>
-                <span>{{ project.implementationKey }}</span>
+                <span>{{ 'projetos.implementation' | t }}</span>
+                <span>{{ project.implementationKey | t }}</span>
               </div>
               <div>
-                <span>Benefício:</span>
-                <span>{{ project.benefitKey }}</span>
+                <span>{{ 'projetos.benefit' | t }}</span>
+                <span>{{ project.benefitKey | t }}</span>
               </div>
             </div>
             <div>
               @if (project.repoUrl) {
-                <a [href]="project.repoUrl" target="_blank" rel="noopener noreferrer">Ver Código →</a>
+                <a [href]="project.repoUrl" target="_blank" rel="noopener noreferrer">{{ 'projetos.viewCode' | t }}</a>
               }
               @if (project.demoUrl) {
-                <a [href]="project.demoUrl" target="_blank" rel="noopener noreferrer">Ver Demo →</a>
+                <a [href]="project.demoUrl" target="_blank" rel="noopener noreferrer">{{ 'projetos.viewDemo' | t }}</a>
               }
             </div>
           </div>

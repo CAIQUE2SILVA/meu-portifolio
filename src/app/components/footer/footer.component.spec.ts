@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { I18N_TEST_PROVIDERS } from '../../core/i18n/i18n.testing';
 import { FooterComponent } from './footer.component';
 
 describe('FooterComponent', () => {
@@ -8,7 +9,8 @@ describe('FooterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FooterComponent]
+      imports: [FooterComponent],
+      providers: I18N_TEST_PROVIDERS,
     })
     .compileComponents();
 

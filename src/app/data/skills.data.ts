@@ -3,31 +3,31 @@ import { SkillCategory } from '../models/skill.model';
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     id: 'frontend',
-    titleKey: 'Front-end',
+    titleKey: 'skills.frontend.title',
     icon: '🚀',
     skills: ['Angular', 'TypeScript', 'JavaScript', 'HTML', 'CSS / SCSS', 'Ionic', 'React'],
   },
   {
     id: 'state',
-    titleKey: 'Estado & Reatividade',
+    titleKey: 'skills.state.title',
     icon: '🧠',
     skills: ['NgRx', 'RxJS', 'Signals', 'Acessibilidade (WCAG)', 'Performance (Lighthouse)'],
   },
   {
     id: 'backend',
-    titleKey: 'Back-end & Plataforma (estudos)',
+    titleKey: 'skills.backend.title',
     icon: '🐳',
     skills: ['Node.js', 'Docker', 'C#'],
   },
   {
     id: 'tools',
-    titleKey: 'Ferramentas',
+    titleKey: 'skills.tools.title',
     icon: '🛠️',
     skills: ['Git / GitHub', 'Figma', 'Firebase', 'VS Code', 'GLPI', 'Zabbix'],
   },
   {
     id: 'it-ops',
-    titleKey: 'TI & Operações',
+    titleKey: 'skills.itops.title',
     icon: '🖥️',
     skills: [
       'Windows Server',

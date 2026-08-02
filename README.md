@@ -1,42 +1,54 @@
-# Meu Portifolio - Portfolio Profissional
+# Meu Portfólio — Portfolio Profissional
 
-## Sobre o Projeto
+Portfolio profissional interativo em **Angular 19** (standalone) para apresentar projetos, habilidades e experiência como desenvolvedor Full-Stack. Responsivo para mobile, tablet e desktop.
 
-Portfolio profissional interativo desenvolvido com **Angular**, **Ionic** e **Capacitor** para apresentar meus projetos, habilidades e experiencia como desenvolvedor Full-Stack. O projeto eh responsivo e funciona em dispositivos moveis, tablet e desktop.
+> A UI atual é Angular puro. Capacitor permanece no repo como bridge opcional; não há componentes Ionic na interface.
 
-## Demonstracao
+## Demonstração
 
-**Acesse em:** [Meu Portifolio](https://caique-portifolio.netlify.app/home)
+**Acesse em:** [caique-portifolio.netlify.app](https://caique-portifolio.netlify.app/home)
+
+## Stack do projeto
 
 ### Frontend
-- **Angular 17+** - Framework TypeScript para aplicacoes web
-- **TypeScript 37.5%** - Superset JavaScript com tipagem estatica
-- **SCSS/CSS 29.9%** - Estilos avancados e responsivos
-- **HTML 28.9%** - Estrutura semantica
-- **Ionic Framework** - Framework mobile cross-platform
-- **Capacitor** - Bridge entre web e plataformas nativas
+- **Angular 19** — SPA TypeScript standalone
+- **TypeScript ~5.6** — tipagem estática
+- **SCSS** — estilos por componente + tokens globais
+- **Capacitor** (opcional) — bridge nativa; `webDir: www`
 
-### Ferramentas & Configuracao
-- **ESLint** - Linting de codigo
-- **Karma** - Test runner
-- **Node.js 14+** - Runtime
+### Ferramentas
+- **ESLint** — lint
+- **Karma + Jasmine** — testes
+- **Node.js 22** — runtime recomendado
+- **Netlify** — hosting + function de contato
+- **Cloudflare Workers** (Wrangler) — deploy alternativo dos assets estáticos
 
-## Funcionalidades
+### Roadmap do redesign (alvo)
+- **GSAP + ScrollTrigger** — painéis pinned, indicador lateral em projetos, footer bounce
+- **i18n pt/en** — toggle runtime com dicionários JSON
+- Estrutura `core/` · `data/` · `models/`
 
-- Pagina Inicial - Apresentacao profissional e navegacao
-- Secao Sobre - Historico profissional e bio
-- Portfolio de Projetos - Showcase dos principais projetos
-- Skills & Tecnologias - Stack de desenvolvimento
-- Contato - Formulario de contato ou links de rede
-- Design Responsivel - Mobile-first, funciona em todos os dispositivos
-- Otimizado para SEO - Meta tags e estrutura semantica
+Documentação completa:
 
-## Instalacao
+- [docs/ROADMAP.md](docs/ROADMAP.md) — priorização P0 → P4 (mais → menos necessário)
+- [docs/GUIA-EXECUCAO.md](docs/GUIA-EXECUCAO.md) — passo a passo detalhado de cada etapa
 
-### Pre-requisitos
-- Node.js 14+ instalado
-- npm ou yarn
-- Angular CLI 17+
+## Funcionalidades atuais
+
+- Página inicial com hero, CTAs (projetos, CV, WhatsApp)
+- Seções: Sobre, Skills, Experiência, Projetos, Educação
+- Navegação por fragmentos (`#projetos`, `#sobre`, …)
+- SEO básico (meta, Open Graph, `robots.txt`, `sitemap.xml`)
+- Design responsivo
+
+> O formulário de contato existe no código, mas está desativado na home até alinhar com a Netlify Function (ver P4 no roadmap).
+
+## Instalação
+
+### Pré-requisitos
+- Node.js 22+
+- npm
+- Angular CLI 19 (via `npx` / `node_modules`)
 
 ### Passos
 
@@ -44,97 +56,97 @@ Portfolio profissional interativo desenvolvido com **Angular**, **Ionic** e **Ca
 git clone https://github.com/CAIQUE2SILVA/meu-portifolio.git
 cd meu-portifolio
 npm install
-ng serve
+npm start
 ```
 
-Acesse em http://localhost:4200
+Acesse http://localhost:4200
 
-## Execucao
+## Execução
 
 ### Desenvolvimento
 ```bash
-ng serve
-ng serve --port 4201
+npm start
+# ou
+npx ng serve --port 4201
 ```
 
-### Build para Producao
+### Build para produção
 ```bash
-ng build --configuration production
+npm run build
 ```
+
+Saída em `www/` (Netlify e Wrangler).
 
 ### Testes
 ```bash
-ng test
-ng test --code-coverage
+# local com Chrome
+npx ng test
+
+# headless (CI / cloud VM)
+CHROME_BIN=$(which google-chrome-stable) npx ng test --watch=false --browsers=ChromeHeadless
 ```
 
-## Stack Profissional
+### Lint
+```bash
+npm run lint
+```
 
-**Frontend:**
-- Angular (Avancado)
-- React/React Native (Intermediario)
-- Ionic/Capacitor
-- TypeScript
-- HTML5, CSS3, SCSS
+### Cloudflare Workers
+```bash
+npm run build
+npm run preview   # wrangler dev
+npm run deploy    # wrangler deploy
+```
 
-**Backend:**
-- Node.js + Express
-- C# + .NET
-- TypeScript
-- REST APIs
+## Stack profissional (perfil)
 
-**Bancos de Dados:**
-- Firebase/Firestore
-- Supabase (PostgreSQL)
-- SQL
+**Frontend:** Angular, React/React Native, TypeScript, HTML5, CSS3/SCSS  
+**Backend:** Node.js + Express, C# + .NET, REST APIs  
+**Dados:** Firebase/Firestore, Supabase (PostgreSQL), SQL  
+**DevOps:** Docker, GitHub, Netlify, Cloudflare
 
-**DevOps & Tools:**
-- Docker
-- GitHub/Git
-- Netlify
-
-## Principais Projetos
-
-Veja no portifolio meus melhores projetos:
+## Principais projetos
 
 ### 1. TodoList Backend
 - REST API em TypeScript + Express.js
 - https://github.com/CAIQUE2SILVA/TODOLIST-BACKEND
 
 ### 2. Casamento Website
-- Site completo com Angular, Firebase, Supabase
+- Site com Angular, Firebase, Supabase
 - https://github.com/CAIQUE2SILVA/casamento-website
 
 ### 3. Google Books Search
-- Integracao com API Google Books
+- Integração com API Google Books
 - https://github.com/CAIQUE2SILVA/Projeto-Busca-de-livros-
 
-## Licenca
+## Licença
 
-MIT License - sinta-se livre para usar este codigo como referencia!
+MIT License — use este código como referência.
 
-## Sobre Mim
+## Sobre mim
 
-Sou desenvolvedor Full-Stack apaixonado por criar experiencias web incriveis. Interesses:
-- Desenvolvimento Frontend com Angular
-- APIs e Backend com Node.js/TypeScript
-- DevOps e containerizacao com Docker
+Desenvolvedor Full-Stack focado em experiências web de qualidade. Interesses:
+- Frontend com Angular
+- APIs com Node.js/TypeScript
+- DevOps e Docker
 - Infraestrutura e sistemas de ticketing (GLPI)
 - Mentoria e compartilhamento de conhecimento
 
-## Conecte-se comigo
+## Conecte-se
 
-- LinkedIn: [https://www.linkedin.com/in/caique-nonato-da-silva-218aa988/]
-- GitHub: @CAIQUE2SILVA
+- LinkedIn: [Caique Nonato da Silva](https://www.linkedin.com/in/caique-nonato-da-silva-218aa988/)
+- GitHub: [@CAIQUE2SILVA](https://github.com/CAIQUE2SILVA)
 - Email: Caique2silva@gmail.com
 
-## Contribuicoes
+## Contribuições
 
-Sugestoes e melhorias sao bem-vindas! Sinta-se livre para:
+Sugestões e melhorias são bem-vindas:
 - Reportar bugs via Issues
 - Sugerir features
-- Fazer fork e enviar Pull Requests
+- Fork + Pull Requests
+
+Para mudanças grandes de UX/motion/i18n, siga o [roadmap](docs/ROADMAP.md) e o [guia de execução](docs/GUIA-EXECUCAO.md).
 
 ---
 
-**P.S.:** Se voce gostou, deixe uma estrela no repositorio!
+**P.S.:** Se gostou, deixe uma estrela no repositório.

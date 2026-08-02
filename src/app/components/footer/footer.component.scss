@@ -5,7 +5,7 @@
 footer {
   padding: 44px 16px;
   border-top: 1px solid #e2e8f0;
-  background: #ffffff;
+  background: var(--color-surface);
 }
 
 footer > div {
@@ -36,7 +36,7 @@ footer a {
 }
 
 footer a:hover {
-  color: #4f46e5;
+  color: var(--color-accent);
   text-decoration: underline;
 }
 

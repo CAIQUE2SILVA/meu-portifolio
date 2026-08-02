@@ -4,9 +4,9 @@
 
 :host > div {
   min-height: 100vh;
-  background: #f8fafc;
-  color: #0f172a;
-  font-family: 'Inconsolata', monospace;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
 }
 
 :host ::selection {
@@ -35,7 +35,7 @@ a {
 /* HERO */
 header {
   padding: 128px 16px 80px;
-  background: linear-gradient(to bottom, #ffffff, #f8fafc);
+  background: linear-gradient(to bottom, var(--color-surface), var(--color-bg));
 }
 
 header > div {
@@ -70,7 +70,7 @@ header h1 {
 header h2 {
   font-size: clamp(1.125rem, 2.5vw, 1.5rem);
   font-weight: 800;
-  color: #4f46e5;
+  color: var(--color-accent);
   margin-bottom: 20px;
 }
 
@@ -78,7 +78,7 @@ header p {
   max-width: 44rem;
   margin: 0 auto 28px;
   font-size: 18px;
-  color: #475569;
+  color: var(--color-muted);
 }
 
 header > div > div:first-child > div {
@@ -101,29 +101,29 @@ header > div > div:first-child > div a {
 }
 
 header > div > div:first-child > div a:first-child {
-  background: #4f46e5;
+  background: var(--color-accent);
   color: #ffffff;
   box-shadow: 0 12px 30px rgba(79, 70, 229, 0.22);
 }
 
 header > div > div:first-child > div a:first-child:hover {
-  background: #4338ca;
+  background: var(--color-accent-hover);
   transform: translateY(-1px);
 }
 
 header > div > div::after:first-child > div a:last-child {
-  background: #4338ca;
+  background: var(--color-accent-hover);
   border-color: black;
-  color: #0f172a;
+  color: var(--color-ink);
 }
 
 header > div > div:first-child > div a:last-child:hover {
-  background: #4338ca;
+  background: var(--color-accent-hover);
 }
 
 /* terceiro CTA (WhatsApp) */
 header > div > div:first-child > div a:nth-child(3) {
-  background: #0f172a;
+  background: var(--color-panel);
   color: #ffffff;
 }
 

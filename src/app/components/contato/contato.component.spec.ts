@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideHttpClient } from '@angular/common/http';
 
 import { ContatoComponent } from './contato.component';
 
@@ -8,9 +9,9 @@ describe('ContatoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ContatoComponent]
-    })
-    .compileComponents();
+      imports: [ContatoComponent],
+      providers: [provideHttpClient()],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ContatoComponent);
     component = fixture.componentInstance;

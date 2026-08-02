@@ -4,17 +4,17 @@
 
 section {
   padding: 80px 16px;
-  background: #0f172a;
+  background: var(--color-panel);
   color: #ffffff;
   scroll-margin-top: 88px;
 }
 
-section > div {
+.projects-shell {
   max-width: 72rem;
   margin: 0 auto;
 }
 
-section h2 {
+.projects-header h2 {
   margin: 0 0 6px;
   font-size: 32px;
   font-weight: 900;
@@ -22,50 +22,58 @@ section h2 {
   color: #ffffff;
 }
 
-section > div > div:first-child p {
+.projects-header p {
   margin: 8px 0 0;
   color: #94a3b8;
 }
 
-section > div > div:last-child {
+.projects-layout {
   margin-top: 32px;
   display: grid;
   grid-template-columns: 1fr;
   gap: 22px;
 }
 
-/* project card */
-section > div > div:last-child > div {
-  background: #1e293b;
+.projects-rail {
+  display: none;
+}
+
+.projects-track {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+}
+
+.project-slide {
+  min-height: auto;
+}
+
+.project-card {
+  background: var(--color-panel-elevated);
   border: 1px solid #334155;
   border-radius: 22px;
   overflow: hidden;
-}
-
-section > div > div:last-child > div > div {
   padding: 28px;
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
 
-/* card header row */
-section > div > div:last-child > div > div > div:first-child {
+.project-card-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 12px;
 }
 
-section h3 {
+.project-card h3 {
   margin: 0;
   color: #ffffff;
   font-size: 22px;
   font-weight: 900;
 }
 
-/* badge */
-section > div > div:last-child > div > div > div:first-child > span {
+.project-card-header span {
   padding: 4px 8px;
   border-radius: 999px;
   background: rgba(99, 102, 241, 0.18);
@@ -77,58 +85,109 @@ section > div > div:last-child > div > div > div:first-child > span {
   white-space: nowrap;
 }
 
-section > div > div:last-child > div > div > p {
+.project-card > p {
   margin: 0;
   color: #94a3b8;
   font-size: 14px;
 }
 
-/* implementation/benefit rows */
-section > div > div:last-child > div > div > div:nth-child(3) {
+.project-meta {
   display: grid;
   gap: 10px;
 }
 
-section > div > div:last-child > div > div > div:nth-child(3) > div {
+.project-meta > div {
   display: flex;
   gap: 10px;
   font-size: 14px;
 }
 
-section > div > div:last-child > div > div > div:nth-child(3) > div > span:first-child {
+.project-meta > div:first-child > span:first-child {
   color: #a5b4fc;
   font-weight: 900;
 }
 
-section > div > div:last-child > div > div > div:nth-child(3) > div:nth-child(2) > span:first-child {
+.project-meta > div:last-child > span:first-child {
   color: #4ade80;
+  font-weight: 900;
 }
 
-section > div > div:last-child > div > div > div:nth-child(3) > div > span:last-child {
+.project-meta > div > span:last-child {
   color: #e2e8f0;
 }
 
-section > div > div:last-child > div > div > div:last-child {
+.project-links {
   display: flex;
   gap: 18px;
   flex-wrap: wrap;
   margin-top: 6px;
 }
 
-section > div > div:last-child > div > div > div:last-child a {
+.project-links a {
   color: #a5b4fc;
   font-weight: 800;
   font-size: 14px;
   text-decoration: none;
 }
 
-section > div > div:last-child > div > div > div:last-child a:hover {
+.project-links a:hover {
   text-decoration: underline;
 }
 
 @media (min-width: 768px) {
-  section > div > div:last-child {
+  .projects-track {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
+@media (min-width: 1024px) {
+  .projects-layout {
+    grid-template-columns: 48px 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+
+  .projects-rail {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-top: 120px;
+  }
+
+  .projects-rail-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 999px;
+    background: #334155;
+    transition: transform 180ms ease, background 180ms ease;
+  }
+
+  .projects-rail-dot.is-active {
+    background: var(--color-accent);
+    transform: scale(1.35);
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.25);
+  }
+
+  .projects-track {
+    display: flex;
+    flex-direction: column;
+    gap: 72vh;
+    grid-template-columns: none;
+  }
+
+  .project-slide {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .project-card {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projects-rail-dot {
+    transition: none;
+  }
+}

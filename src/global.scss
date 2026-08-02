@@ -23,3 +23,18 @@ body {
 a {
   color: inherit;
 }
+
+.pin-panel {
+  width: 100vw;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

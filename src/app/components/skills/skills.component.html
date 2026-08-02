@@ -1,11 +1,11 @@
 <section id="skills">
   <div>
-    <h2>Stack Tecnológica</h2>
+    <h2>{{ 'skills.title' | t }}</h2>
     <div>
       @for (category of categories; track category.id) {
         <div>
           <h3>
-            <span aria-hidden="true">{{ category.icon }}</span> {{ category.titleKey }}
+            <span aria-hidden="true">{{ category.icon }}</span> {{ category.titleKey | t }}
           </h3>
           <div>
             @for (skill of category.skills; track skill) {

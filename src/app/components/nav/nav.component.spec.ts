@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 
+import { I18N_TEST_PROVIDERS } from '../../core/i18n/i18n.testing';
 import { NavComponent } from './nav.component';
 
 describe('NavComponent', () => {
@@ -10,7 +11,7 @@ describe('NavComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [NavComponent],
-      providers: [provideRouter([])],
+      providers: [provideRouter([]), ...I18N_TEST_PROVIDERS],
     }).compileComponents();
 
     fixture = TestBed.createComponent(NavComponent);

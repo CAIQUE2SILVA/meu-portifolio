@@ -1,11 +1,9 @@
 <footer>
   <div>
-    <p>
-      ©  Caique Nonato da Silva. Desenvolvido com Angular.
-    </p>
+    <p>{{ 'footer.copyright' | t }}</p>
     <div>
-      <a href="https://github.com/CAIQUE2SILVA" target="_blank" aria-label="GitHub">GitHub</a>
-      <a href="https://www.linkedin.com/in/caique-nonato-da-silva-218aa988/" aria-label="LinkedIn"target="_blank">LinkedIn</a>
+      <a href="https://github.com/CAIQUE2SILVA" target="_blank" rel="noopener noreferrer" [attr.aria-label]="'footer.github.aria' | t">GitHub</a>
+      <a href="https://www.linkedin.com/in/caique-nonato-da-silva-218aa988/" target="_blank" rel="noopener noreferrer" [attr.aria-label]="'footer.linkedin.aria' | t">LinkedIn</a>
     </div>
   </div>
 </footer>

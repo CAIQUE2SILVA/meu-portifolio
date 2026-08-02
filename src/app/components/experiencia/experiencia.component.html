@@ -1,6 +1,6 @@
 <section id="experiencia">
   <div>
-    <h2>Experiência Profissional</h2>
+    <h2>{{ 'experiencia.title' | t }}</h2>
 
     <div>
       @for (exp of experiences; track exp.id) {
@@ -8,18 +8,18 @@
           <div></div>
           <div>
             <div>
-              <h3>{{ exp.roleKey }}</h3>
+              <h3>{{ exp.roleKey | t }}</h3>
               <p>{{ exp.company }}</p>
             </div>
             <div>
-              {{ exp.periodKey }} | {{ exp.locationKey }}
+              {{ exp.periodKey | t }} | {{ exp.locationKey | t }}
             </div>
           </div>
           <ul>
             @for (highlight of exp.highlightKeys; track highlight) {
               <li>
-                <span>•</span>
-                <span>{{ highlight }}</span>
+                <span aria-hidden="true">•</span>
+                <span>{{ highlight | t }}</span>
               </li>
             }
           </ul>

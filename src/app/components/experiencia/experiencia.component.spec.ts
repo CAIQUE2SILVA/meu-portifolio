@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { I18N_TEST_PROVIDERS } from '../../core/i18n/i18n.testing';
 import { ExperienciaComponent } from './experiencia.component';
 
 describe('ExperienciaComponent', () => {
@@ -8,7 +9,8 @@ describe('ExperienciaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ExperienciaComponent]
+      imports: [ExperienciaComponent],
+      providers: I18N_TEST_PROVIDERS,
     })
     .compileComponents();
 

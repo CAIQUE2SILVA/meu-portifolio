@@ -4,57 +4,29 @@
   <header id="inicio">
     <div>
       <div>
-        <h1>
-          Caique Nonato da Silva
-        </h1>
-        <h2>
-          Coordenador de TI / Desenvolvedor | Angular, TypeScript, Ionic
-        </h2>
-        <p>
-          Profissional de TI e desenvolvimento de software com <strong>mais de 5 anos</strong> de experiência em <strong>Coordenação de TI</strong>,
-          <strong>Front-end</strong> e <strong>Suporte Técnico</strong> (N1 a N3), atuando do levantamento de requisitos ao suporte aos usuários.
-        </p>
+        <h1>{{ 'hero.name' | t }}</h1>
+        <h2>{{ 'hero.role' | t }}</h2>
+        <p [innerHTML]="'hero.bio' | t"></p>
         <div>
-          <a [routerLink]="['/home']" fragment="projetos">Ver Projetos</a>
-          <a href="assets/cv/Resume.pdf" target="_blank" rel="noopener noreferrer">Abrir Currículo (PDF)</a>
+          <a [routerLink]="['/home']" fragment="projetos">{{ 'hero.cta.projects' | t }}</a>
+          <a href="assets/cv/Resume.pdf" target="_blank" rel="noopener noreferrer">{{ 'hero.cta.cv' | t }}</a>
           <a href="https://wa.me/5511956386749?text=Ol%C3%A1%2C%20vim%20pelo%20seu%20portf%C3%B3lio%21" target="_blank" rel="noopener noreferrer">
-            Falar no WhatsApp
+            {{ 'hero.cta.whatsapp' | t }}
           </a>
         </div>
       </div>
       <div>
-         <!-- Placeholder para foto -->
-          <span>
-            <img src="assets/images/profile.png" alt="Caique Nonato da Silva">
-          </span>
+        <span>
+          <img src="assets/images/profile.png" [alt]="'hero.photo.alt' | t">
+        </span>
       </div>
     </div>
   </header>
 
-  <!-- SOBRE MIM -->
   <app-sobre></app-sobre>
-
-
-  <!-- SKILLS -->
   <app-skills></app-skills>
-
-
-  <!-- EXPERIÊNCIA -->
   <app-experiencia></app-experiencia>
-
-
-  <!-- PROJETOS EM DESTAQUE -->
   <app-projetos></app-projetos>
-
-
-  <!-- EDUCAÇÃO -->
   <app-educacao></app-educacao>
-
-  <!-- CONTATO -->
-   <!-- Todo Ajustar envio de Email -->
-  <!-- <app-contato></app-contato> -->
-
-
-  <!-- FOOTER -->
   <app-footer></app-footer>
 </div>

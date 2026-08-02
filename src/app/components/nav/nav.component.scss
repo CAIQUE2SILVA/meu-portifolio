@@ -97,7 +97,44 @@ nav [data-mobile-menu] a {
 
 nav [data-mobile-menu] a:hover {
   background: #f1f5f9;
-  color: #4f46e5;
+  color: var(--color-accent);
+}
+
+nav [data-lang-toggle] {
+  display: inline-flex;
+  gap: 4px;
+  margin-left: 8px;
+  padding: 2px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #fff;
+}
+
+nav [data-lang-toggle] button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 32px;
+  padding: 0 8px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--color-muted);
+  cursor: pointer;
+}
+
+nav [data-lang-toggle] button.is-active {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+nav [data-lang-toggle-mobile] {
+  margin-left: 0;
+  margin-top: 8px;
+  width: fit-content;
 }
 
 @media (min-width: 768px) {

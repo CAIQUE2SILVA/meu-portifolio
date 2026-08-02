@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { I18N_TEST_PROVIDERS } from '../../core/i18n/i18n.testing';
 import { SkillsComponent } from './skills.component';
 
 describe('SkillsComponent', () => {
@@ -8,7 +9,8 @@ describe('SkillsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SkillsComponent]
+      imports: [SkillsComponent],
+      providers: I18N_TEST_PROVIDERS,
     })
     .compileComponents();
 

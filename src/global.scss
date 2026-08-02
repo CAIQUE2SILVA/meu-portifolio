@@ -9,20 +9,15 @@
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
-/* Base global (Angular puro) */
-:root {
-  color-scheme: light;
-}
-
 html {
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  font-family: 'Inconsolata', monospace;
-  background: #f8fafc;
-  color: #0f172a;
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-ink);
 }
 
 a {

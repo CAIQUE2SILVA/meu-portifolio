@@ -2,7 +2,7 @@
 
 Portfolio profissional interativo em **Angular 19** (standalone) para apresentar projetos, habilidades e experiência como desenvolvedor Full-Stack. Responsivo para mobile, tablet e desktop.
 
-> A UI atual é Angular puro. Capacitor permanece no repo como bridge opcional; não há componentes Ionic na interface.
+> A UI atual é Angular puro. Capacitor permanece no repo como bridge opcional (`appId: com.caique.portifolio`); não há componentes Ionic na interface.
 
 ## Demonstração
 

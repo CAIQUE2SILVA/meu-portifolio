@@ -6,128 +6,35 @@
     </div>
 
     <div>
-
-      <!-- Projeto 1 -->
-      <div>
+      @for (project of projects; track project.id) {
         <div>
           <div>
-            <h3>casamento-website</h3>
-            <span>Angular + Firebase + Supabase</span>
-          </div>
-          <p>Site de casamento com gestão de convidados e RSVP, integrando banco em tempo real.</p>
-          <div>
             <div>
-              <span>Implementação:</span>
-              <span>Frontend em Angular, autenticação/fluxos de convidados, persistência e atualizações em tempo real.</span>
+              <h3>{{ project.titleKey }}</h3>
+              <span>{{ project.stack.join(' · ') }}</span>
+            </div>
+            <p>{{ project.descriptionKey }}</p>
+            <div>
+              <div>
+                <span>Implementação:</span>
+                <span>{{ project.implementationKey }}</span>
+              </div>
+              <div>
+                <span>Benefício:</span>
+                <span>{{ project.benefitKey }}</span>
+              </div>
             </div>
             <div>
-              <span>Benefício:</span>
-              <span>Centraliza confirmação de presença e informações do evento, facilitando a organização.</span>
+              @if (project.repoUrl) {
+                <a [href]="project.repoUrl" target="_blank" rel="noopener noreferrer">Ver Código →</a>
+              }
+              @if (project.demoUrl) {
+                <a [href]="project.demoUrl" target="_blank" rel="noopener noreferrer">Ver Demo →</a>
+              }
             </div>
-          </div>
-          <div>
-            <a href="https://github.com/CAIQUE2SILVA/casamento-website" target="_blank" rel="noopener noreferrer">Ver Código →</a>
-            <a href="https://kimillyekaua.netlify.app/" target="_blank" rel="noopener noreferrer">Ver Demo →</a>
           </div>
         </div>
-      </div>
-
-      <!-- Projeto 2 -->
-      <div>
-        <div>
-          <div>
-            <h3>MyPerson</h3>
-            <span>React · Angular · ASP.NET Core · Nginx · PostgreSQL · Docker</span>
-          </div>
-          <p>Site full-stack com Docker Compose: frontend em React, painel admin em Angular, API em ASP.NET Core (C#), Nginx como reverse proxy e PostgreSQL.</p>
-          <div>
-            <div>
-              <span>Implementação:</span>
-              <span>Estrutura com frontend (React), admin (Angular), api (ASP.NET Core) e nginx; roteamento via Nginx e orquestração com docker-compose.</span>
-            </div>
-            <div>
-              <span>Benefício:</span>
-              <span>Prática de stack completa, múltiplos frontends e backend em .NET, com ambiente containerizado próximo ao de produção.</span>
-            </div>
-          </div>
-          <div>
-            <a href="https://github.com/CAIQUE2SILVA/MyPerson" target="_blank" rel="noopener noreferrer">Ver Código →</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Projeto 3 -->
-      <div>
-        <div>
-          <div>
-            <h3>TODOLIST-BACKEND</h3>
-            <span>Node.js + TypeScript + Express</span>
-          </div>
-          <p>API REST para gerenciamento de tarefas (CRUD), com foco em uma base “production ready”.</p>
-          <div>
-            <div>
-              <span>Implementação:</span>
-              <span>Rotas e handlers em Express com TypeScript, estruturando endpoints para tarefas.</span>
-            </div>
-            <div>
-              <span>Benefício:</span>
-              <span>Backend reutilizável para apps de produtividade e integrações front-end.</span>
-            </div>
-          </div>
-          <div>
-            <a href="https://github.com/CAIQUE2SILVA/TODOLIST-BACKEND" target="_blank" rel="noopener noreferrer">Ver Código →</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Projeto 4 -->
-      <div>
-        <div>
-          <div>
-            <h3>WebApi</h3>
-            <span>ASP.NET Core + C#</span>
-          </div>
-          <p>API REST em .NET para estudos e prática de backend: endpoints, modelos e boas práticas em C#.</p>
-          <div>
-            <div>
-              <span>Implementação:</span>
-              <span>Projeto ASP.NET Core com controllers, rotas e estrutura pronta para integração.</span>
-            </div>
-            <div>
-              <span>Benefício:</span>
-              <span>Base sólida em C#/.NET para evoluir para microsserviços ou consumo por front-end.</span>
-            </div>
-          </div>
-          <div>
-            <a href="https://github.com/CAIQUE2SILVA/WebAPI" target="_blank" rel="noopener noreferrer">Ver Código →</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Projeto 5 -->
-      <div>
-        <div>
-          <div>
-            <h3>meu-portifolio</h3>
-            <span>Angular</span>
-          </div>
-          <p>Meu portfólio pessoal (este site), com seções, links e contato.</p>
-          <div>
-            <div>
-              <span>Implementação:</span>
-              <span>Angular com componentes e estilos SCSS, deploy na Netlify.</span>
-            </div>
-            <div>
-              <span>Benefício:</span>
-              <span>Apresentação centralizada de experiência, skills e projetos.</span>
-            </div>
-          </div>
-          <div>
-            <a href="https://github.com/CAIQUE2SILVA/meu-portifolio" target="_blank" rel="noopener noreferrer">Ver Código →</a>
-          </div>
-        </div>
-      </div>
-
+      }
     </div>
   </div>
 </section>

@@ -1,40 +1,48 @@
 <section id="projetos">
-  <div>
-    <div>
+  <div class="projects-shell">
+    <div class="projects-header">
       <h2>{{ 'projetos.title' | t }}</h2>
       <p>{{ 'projetos.subtitle' | t }}</p>
     </div>
 
-    <div>
-      @for (project of projects; track project.id) {
-        <div>
-          <div>
-            <div>
-              <h3>{{ project.titleKey | t }}</h3>
-              <span>{{ project.stack.join(' · ') }}</span>
-            </div>
-            <p>{{ project.descriptionKey | t }}</p>
-            <div>
-              <div>
-                <span>{{ 'projetos.implementation' | t }}</span>
-                <span>{{ project.implementationKey | t }}</span>
+    <div class="projects-layout">
+      <div class="projects-rail" aria-hidden="true">
+        @for (project of projects; track project.id; let i = $index) {
+          <span class="projects-rail-dot" [class.is-active]="activeIndex() === i"></span>
+        }
+      </div>
+
+      <div class="projects-track">
+        @for (project of projects; track project.id) {
+          <article class="project-slide">
+            <div class="project-card">
+              <div class="project-card-header">
+                <h3>{{ project.titleKey | t }}</h3>
+                <span>{{ project.stack.join(' · ') }}</span>
               </div>
-              <div>
-                <span>{{ 'projetos.benefit' | t }}</span>
-                <span>{{ project.benefitKey | t }}</span>
+              <p>{{ project.descriptionKey | t }}</p>
+              <div class="project-meta">
+                <div>
+                  <span>{{ 'projetos.implementation' | t }}</span>
+                  <span>{{ project.implementationKey | t }}</span>
+                </div>
+                <div>
+                  <span>{{ 'projetos.benefit' | t }}</span>
+                  <span>{{ project.benefitKey | t }}</span>
+                </div>
+              </div>
+              <div class="project-links">
+                @if (project.repoUrl) {
+                  <a [href]="project.repoUrl" target="_blank" rel="noopener noreferrer">{{ 'projetos.viewCode' | t }}</a>
+                }
+                @if (project.demoUrl) {
+                  <a [href]="project.demoUrl" target="_blank" rel="noopener noreferrer">{{ 'projetos.viewDemo' | t }}</a>
+                }
               </div>
             </div>
-            <div>
-              @if (project.repoUrl) {
-                <a [href]="project.repoUrl" target="_blank" rel="noopener noreferrer">{{ 'projetos.viewCode' | t }}</a>
-              }
-              @if (project.demoUrl) {
-                <a [href]="project.demoUrl" target="_blank" rel="noopener noreferrer">{{ 'projetos.viewDemo' | t }}</a>
-              }
-            </div>
-          </div>
-        </div>
-      }
+          </article>
+        }
+      </div>
     </div>
   </div>
 </section>

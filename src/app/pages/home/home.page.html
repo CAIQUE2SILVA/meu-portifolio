@@ -9,7 +9,9 @@
         <p [innerHTML]="'hero.bio' | t"></p>
         <div>
           <a [routerLink]="['/home']" fragment="projetos">{{ 'hero.cta.projects' | t }}</a>
+          <!-- Botão de currículo desabilitado temporariamente até atualização do PDF sem dados sensíveis
           <a href="assets/cv/Resume.pdf" target="_blank" rel="noopener noreferrer">{{ 'hero.cta.cv' | t }}</a>
+          -->
           <a href="https://wa.me/5511956386749?text=Ol%C3%A1%2C%20vim%20pelo%20seu%20portf%C3%B3lio%21" target="_blank" rel="noopener noreferrer">
             {{ 'hero.cta.whatsapp' | t }}
           </a>

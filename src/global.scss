@@ -9,8 +9,9 @@
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
+/* Avoid CSS scroll-behavior:smooth — it fights ScrollTrigger pinning/scrub. */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 body {
@@ -25,16 +26,25 @@ a {
 }
 
 .pin-panel {
-  width: 100vw;
-  min-height: 100vh;
   position: relative;
-  overflow: hidden;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
+}
+
+/*
+ * SplitText line wrappers. The plugin sets `overflow: clip` on the mask itself;
+ * this only promotes the moving line so masked reveals stay on the compositor.
+ */
+.reveal-line {
+  will-change: transform;
+}
+
+.footer-giant-char {
+  display: inline-block;
+  will-change: transform;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+  .reveal-line,
+  .footer-giant-char {
+    will-change: auto;
   }
 }

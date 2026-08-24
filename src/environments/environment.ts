@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  /** Override OS reduced-motion so GSAP motion can be reviewed in development. */
+  forceMotion: true,
 };
 
 /*

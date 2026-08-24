@@ -1,18 +1,27 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  inject,
-  NgZone,
-  OnDestroy,
-  signal,
-} from '@angular/core';
-import gsap from 'gsap';
+import { ChangeDetectorRef, Component, computed, inject, signal } from '@angular/core';
 
 import { PROJECTS } from '../../data/projects.data';
-import { setupLateralPinIndicator } from '../../core/gsap/projetos.animations';
-import { ensureGsapRegistered, ScrollTrigger } from '../../core/gsap/register';
+import { Project } from '../../models/project.model';
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
+
+interface ProjectSlide extends Project {
+  /** Zero-padded position shown as the card watermark ("01", "02", …). */
+  readonly label: string;
+  /** Stack string exploded into individual chips. */
+  readonly techs: string[];
+}
+
+function toSlide(project: Project, index: number): ProjectSlide {
+  return {
+    ...project,
+    label: String(index + 1).padStart(2, '0'),
+    techs: project.stack
+      .join(' · ')
+      .split(/[·+]/)
+      .map((tech) => tech.trim())
+      .filter(Boolean),
+  };
+}
 
 @Component({
   selector: 'app-projetos',
@@ -21,30 +30,21 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
   templateUrl: './projetos.component.html',
   styleUrl: './projetos.component.scss',
 })
-export class ProjetosComponent implements AfterViewInit, OnDestroy {
-  readonly projects = PROJECTS;
+export class ProjetosComponent {
+  readonly slides: ProjectSlide[] = PROJECTS.map(toSlide);
+  readonly totalLabel = String(PROJECTS.length).padStart(2, '0');
+
   readonly activeIndex = signal(0);
+  readonly activeLabel = computed(() => String(this.activeIndex() + 1).padStart(2, '0'));
 
-  private readonly elementRef = inject(ElementRef<HTMLElement>);
-  private readonly ngZone = inject(NgZone);
-  private gsapCtx?: ReturnType<typeof gsap.context>;
-  private motionCleanup?: () => void;
+  private readonly cdr = inject(ChangeDetectorRef);
 
-  ngAfterViewInit(): void {
-    const gsap = ensureGsapRegistered();
-    const root = this.elementRef.nativeElement;
-
-    this.gsapCtx = gsap.context(() => {
-      this.motionCleanup = setupLateralPinIndicator(root, gsap, (index) => {
-        this.ngZone.run(() => this.activeIndex.set(index));
-      });
-    }, root);
-
-    queueMicrotask(() => ScrollTrigger.refresh());
-  }
-
-  ngOnDestroy(): void {
-    this.motionCleanup?.();
-    this.gsapCtx?.revert();
+  /** Called from outside the Angular zone by the projects ScrollTrigger. */
+  setActiveIndex(index: number): void {
+    if (this.activeIndex() === index) {
+      return;
+    }
+    this.activeIndex.set(index);
+    this.cdr.markForCheck();
   }
 }

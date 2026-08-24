@@ -32,149 +32,237 @@ a {
   text-decoration: none;
 }
 
-/* HERO */
-header {
-  padding: 128px 16px 80px;
+/* ---------- reading progress ---------- */
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  height: 3px;
+  background: rgba(15, 23, 42, 0.08);
+  pointer-events: none;
+}
+
+.scroll-progress-bar {
+  display: block;
+  height: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  background: linear-gradient(90deg, #818cf8, var(--color-accent) 55%, #38bdf8);
+}
+
+/* ---------- hero ---------- */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  padding: 136px 16px 96px;
   background: linear-gradient(to bottom, var(--color-surface), var(--color-bg));
 }
 
-header > div {
+.hero-aura {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(42% 48% at 12% 8%, rgba(79, 70, 229, 0.14), transparent 68%),
+    radial-gradient(36% 40% at 92% 22%, rgba(56, 189, 248, 0.12), transparent 70%);
+}
+
+.hero-grid {
+  position: relative;
+  z-index: 1;
   max-width: 72rem;
   margin: 0 auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
   gap: 48px;
   text-align: center;
-
-  @media (max-width: 768px) {
-    flex-direction: column-reverse;
-    text-align: left;
-    align-items: center;
-    justify-content: space-between;
-  }
 }
 
-header > div > div:first-child {
+.hero-copy {
   width: 100%;
 }
 
-header h1 {
-  font-size: clamp(2.25rem, 6vw, 4rem);
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 22px;
+  font-size: 12px;
   font-weight: 900;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
-  margin-bottom: 16px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-accent);
 }
 
-header h2 {
+.hero-eyebrow-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #22c55e;
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.18);
+}
+
+.hero-name {
+  font-size: clamp(2.5rem, 6.4vw, 4.5rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+  margin-bottom: 18px;
+}
+
+.hero-role {
   font-size: clamp(1.125rem, 2.5vw, 1.5rem);
   font-weight: 800;
   color: var(--color-accent);
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
-header p {
+.hero-bio {
   max-width: 44rem;
-  margin: 0 auto 28px;
+  margin: 0 auto 30px;
   font-size: 18px;
   color: var(--color-muted);
 }
 
-header > div > div:first-child > div {
+.hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   justify-content: center;
 }
 
-header > div > div:first-child > div a {
+.hero-cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 22px;
-  border-radius: 12px;
+  padding: 13px 24px;
+  border-radius: 14px;
   font-weight: 800;
-  border: 1px solid transparent;
-  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease, border-color 120ms ease,
-    color 120ms ease;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  transition: background 200ms ease, border-color 200ms ease, color 200ms ease,
+    box-shadow 200ms ease;
 }
 
-header > div > div:first-child > div a:first-child {
+.hero-cta:hover {
+  border-color: rgba(79, 70, 229, 0.45);
+  color: var(--color-accent);
+}
+
+.hero-cta.is-primary {
+  border-color: transparent;
   background: var(--color-accent);
   color: #ffffff;
-  box-shadow: 0 12px 30px rgba(79, 70, 229, 0.22);
+  box-shadow: 0 16px 36px -14px rgba(79, 70, 229, 0.85);
 }
 
-header > div > div:first-child > div a:first-child:hover {
+.hero-cta.is-primary:hover {
   background: var(--color-accent-hover);
-  transform: translateY(-1px);
+  color: #ffffff;
 }
 
-header > div > div::after:first-child > div a:last-child {
-  background: var(--color-accent-hover);
-  border-color: black;
-  color: var(--color-ink);
-}
-
-header > div > div:first-child > div a:last-child:hover {
-  background: var(--color-accent-hover);
-}
-
-/* terceiro CTA (WhatsApp) */
-header > div > div:first-child > div a:nth-child(3) {
+.hero-cta.is-contrast {
+  border-color: transparent;
   background: var(--color-panel);
   color: #ffffff;
 }
 
-header > div > div:first-child > div a:nth-child(3):hover {
+.hero-cta.is-contrast:hover {
   background: #111827;
-  transform: translateY(-1px);
+  color: #ffffff;
 }
 
-header > div > div:last-child {
+/* Photo frame — the clip-path end state must exist in CSS so GSAP can tween
+   from a collapsed inset on page load. */
+.hero-media {
   width: 16rem;
   height: 16rem;
-  border-radius: 18px;
-  background: #e0e7ff;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  transform: rotate(3deg);
-  box-shadow: 0 18px 50px rgba(2, 6, 23, 0.18);
 }
 
-header > div > div:last-child span {
+.hero-media-frame {
+  position: relative;
+  display: block;
   width: 100%;
   height: 100%;
-  display: block;
+  border-radius: 22px;
+  overflow: hidden;
+  clip-path: inset(0% 0% 0% 0%);
+  background: #e0e7ff;
+  transform: rotate(3deg);
+  box-shadow: 0 24px 60px -20px rgba(2, 6, 23, 0.45);
 }
 
-header > div > div:last-child img {
+.hero-photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
+.hero-cue {
+  position: relative;
+  z-index: 1;
+  display: none;
+  align-items: center;
+  gap: 12px;
+  max-width: 72rem;
+  margin: 64px auto 0;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.hero-cue-line {
+  width: 56px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.5;
+  transform-origin: left center;
+}
+
 @media (min-width: 768px) {
-  header > div {
+  .hero-grid {
     flex-direction: row;
     text-align: left;
     align-items: center;
     justify-content: space-between;
   }
 
-  header p {
+  .hero-eyebrow {
     margin-left: 0;
   }
 
-  header > div > div:first-child > div {
+  .hero-bio {
+    margin-left: 0;
+  }
+
+  .hero-actions {
     justify-content: flex-start;
   }
 
-  header > div > div:last-child {
+  .hero-media {
     width: 18rem;
     height: 18rem;
+    flex: none;
+  }
+
+  .hero-cue {
+    display: flex;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-cta,
+  .scroll-progress-bar {
+    transition: none;
   }
 }

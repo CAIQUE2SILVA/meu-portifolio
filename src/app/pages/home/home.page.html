@@ -17,12 +17,18 @@
           </a>
         </div>
       </div>
-      <div>
-        <span>
-          <img src="assets/images/profile.png" [alt]="'hero.photo.alt' | t">
+
+      <div class="hero-media">
+        <span class="hero-media-frame">
+          <img class="hero-photo" src="assets/images/profile.png" [alt]="'hero.photo.alt' | t">
         </span>
       </div>
     </div>
+
+    <a class="hero-cue" [routerLink]="['/home']" fragment="sobre">
+      <span class="hero-cue-line" aria-hidden="true"></span>
+      {{ 'hero.scrollCue' | t }}
+    </a>
   </header>
 
   <app-sobre></app-sobre>

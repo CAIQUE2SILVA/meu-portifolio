@@ -14,6 +14,8 @@
   "nav.lang.pt.aria": "Mudar idioma para português",
   "nav.lang.en.aria": "Switch language to English",
 
+  "hero.eyebrow": "Disponível para novos projetos",
+  "hero.scrollCue": "Role para explorar",
   "hero.name": "Caique Nonato da Silva",
   "hero.role": "Coordenador de TI / Desenvolvedor | Angular, TypeScript, Ionic",
   "hero.bio": "Profissional de TI e desenvolvimento de software com <strong>mais de 5 anos</strong> de experiência em <strong>Coordenação de TI</strong>, <strong>Front-end</strong> e <strong>Suporte Técnico</strong> (N1 a N3), atuando do levantamento de requisitos ao suporte aos usuários.",
@@ -48,12 +50,15 @@
   "experience.exclusiva.highlight.3": "Rotina com ferramentas e serviços de TI: GLPI, Zabbix, Windows Server, Active Directory, redes corporativas e gestão de ativos.",
   "experience.exclusiva.highlight.4": "Foco em entregar soluções com qualidade, alinhando tecnologia, processos e pessoas para gerar eficiência operacional e valor ao negócio.",
 
+  "projetos.eyebrow": "Trabalhos selecionados",
   "projetos.title": "Projetos em Destaque",
   "projetos.subtitle": "Alguns projetos públicos do meu GitHub (com código e, quando disponível, demo online).",
-  "projetos.implementation": "Implementação:",
-  "projetos.benefit": "Benefício:",
-  "projetos.viewCode": "Ver Código →",
-  "projetos.viewDemo": "Ver Demo →",
+  "projetos.implementation": "Implementação",
+  "projetos.benefit": "Benefício",
+  "projetos.viewCode": "Ver Código",
+  "projetos.viewDemo": "Ver Demo",
+  "projetos.hint": "Role para navegar",
+  "projetos.kind": "Projeto",
 
   "projects.casamento.title": "casamento-website",
   "projects.casamento.description": "Site de casamento com gestão de convidados e RSVP, integrando banco em tempo real.",
@@ -88,7 +93,14 @@
   "educacao.item3.title": "Front-End Specialist",
   "educacao.item3.institution": "Desenvolvimento Web Moderno",
 
+  "footer.eyebrow": "Aberto a oportunidades",
+  "footer.giant": "Vamos conversar",
+  "footer.title": "Vamos construir algo que valha a pena usar.",
+  "footer.cta": "Iniciar uma conversa",
+  "footer.social.aria": "Redes e contatos",
+  "footer.backToTop": "Voltar ao topo",
   "footer.copyright": "© Caique Nonato da Silva. Desenvolvido com Angular.",
   "footer.github.aria": "GitHub",
-  "footer.linkedin.aria": "LinkedIn"
+  "footer.linkedin.aria": "LinkedIn",
+  "footer.whatsapp.aria": "WhatsApp"
 }

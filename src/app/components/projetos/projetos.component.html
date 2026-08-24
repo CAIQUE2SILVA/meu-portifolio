@@ -1,40 +1,86 @@
-<section id="projetos">
-  <div>
-    <div>
-      <h2>{{ 'projetos.title' | t }}</h2>
-      <p>{{ 'projetos.subtitle' | t }}</p>
+<section id="projetos" class="projects">
+  <span class="projects-aura" aria-hidden="true"></span>
+
+  <div class="projects-shell">
+    <header class="projects-header">
+      <p class="projects-eyebrow">
+        <span class="projects-eyebrow-dash" aria-hidden="true"></span>
+        {{ 'projetos.eyebrow' | t }}
+      </p>
+      <h2 class="projects-title">{{ 'projetos.title' | t }}</h2>
+      <p class="projects-subtitle">{{ 'projetos.subtitle' | t }}</p>
+    </header>
+  </div>
+
+  <div class="projects-pin">
+    <div class="projects-hud">
+      <p class="projects-counter">
+        <span class="projects-counter-current">{{ activeLabel() }}</span>
+        <span class="projects-counter-sep" aria-hidden="true">/</span>
+        <span class="projects-counter-total">{{ totalLabel }}</span>
+      </p>
+
+      <p class="projects-hint">{{ 'projetos.hint' | t }}</p>
+
+      <div class="projects-progress">
+        <span class="projects-progress-fill"></span>
+      </div>
     </div>
 
-    <div>
-      @for (project of projects; track project.id) {
-        <div>
-          <div>
-            <div>
-              <h3>{{ project.titleKey | t }}</h3>
-              <span>{{ project.stack.join(' · ') }}</span>
-            </div>
-            <p>{{ project.descriptionKey | t }}</p>
-            <div>
-              <div>
-                <span>{{ 'projetos.implementation' | t }}</span>
-                <span>{{ project.implementationKey | t }}</span>
+    <div class="projects-viewport">
+      <div class="projects-track">
+        @for (slide of slides; track slide.id; let i = $index) {
+          <article class="project-slide">
+            <div class="project-card" [attr.data-tone]="i % 5">
+              <span class="project-card-glow" aria-hidden="true"></span>
+              <span class="project-card-accent" aria-hidden="true"></span>
+
+              <span class="project-card-index" aria-hidden="true">{{ slide.label }}</span>
+
+              <div class="project-card-body">
+                <div class="project-card-top">
+                  <p class="project-kind">{{ 'projetos.kind' | t }} · {{ slide.label }}</p>
+                  <h3 class="project-title">{{ slide.titleKey | t }}</h3>
+                </div>
+
+                <ul class="project-stack">
+                  @for (tech of slide.techs; track tech) {
+                    <li>{{ tech }}</li>
+                  }
+                </ul>
+
+                <p class="project-desc">{{ slide.descriptionKey | t }}</p>
+
+                <dl class="project-meta">
+                  <div class="project-meta-row">
+                    <dt>{{ 'projetos.implementation' | t }}</dt>
+                    <dd>{{ slide.implementationKey | t }}</dd>
+                  </div>
+                  <div class="project-meta-row is-benefit">
+                    <dt>{{ 'projetos.benefit' | t }}</dt>
+                    <dd>{{ slide.benefitKey | t }}</dd>
+                  </div>
+                </dl>
+
+                <div class="project-links">
+                  @if (slide.repoUrl) {
+                    <a class="project-link" [href]="slide.repoUrl" target="_blank" rel="noopener noreferrer">
+                      <span>{{ 'projetos.viewCode' | t }}</span>
+                      <span class="project-link-arrow" aria-hidden="true">→</span>
+                    </a>
+                  }
+                  @if (slide.demoUrl) {
+                    <a class="project-link is-primary" [href]="slide.demoUrl" target="_blank" rel="noopener noreferrer">
+                      <span>{{ 'projetos.viewDemo' | t }}</span>
+                      <span class="project-link-arrow" aria-hidden="true">→</span>
+                    </a>
+                  }
+                </div>
               </div>
-              <div>
-                <span>{{ 'projetos.benefit' | t }}</span>
-                <span>{{ project.benefitKey | t }}</span>
-              </div>
             </div>
-            <div>
-              @if (project.repoUrl) {
-                <a [href]="project.repoUrl" target="_blank" rel="noopener noreferrer">{{ 'projetos.viewCode' | t }}</a>
-              }
-              @if (project.demoUrl) {
-                <a [href]="project.demoUrl" target="_blank" rel="noopener noreferrer">{{ 'projetos.viewDemo' | t }}</a>
-              }
-            </div>
-          </div>
-        </div>
-      }
+          </article>
+        }
+      </div>
     </div>
   </div>
 </section>

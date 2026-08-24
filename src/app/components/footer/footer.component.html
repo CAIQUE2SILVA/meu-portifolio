@@ -1,9 +1,89 @@
-<footer>
-  <div>
-    <p>{{ 'footer.copyright' | t }}</p>
-    <div>
-      <a href="https://github.com/CAIQUE2SILVA" target="_blank" rel="noopener noreferrer" [attr.aria-label]="'footer.github.aria' | t">GitHub</a>
-      <a href="https://www.linkedin.com/in/caique-nonato-da-silva-218aa988/" target="_blank" rel="noopener noreferrer" [attr.aria-label]="'footer.linkedin.aria' | t">LinkedIn</a>
+<footer class="site-footer">
+  <div class="footer-panel">
+    <span class="footer-aura" aria-hidden="true"></span>
+    <span class="footer-year" aria-hidden="true">©26</span>
+
+    <p class="footer-giant" aria-hidden="true">{{ 'footer.giant' | t }}</p>
+
+    <div class="footer-marquee" data-dir="fwd" aria-hidden="true">
+      <div class="footer-marquee-track">
+        @for (pass of marqueePasses; track pass) {
+          <ul class="footer-marquee-group">
+            @for (word of marqueeWords; track word) {
+              <li>
+                {{ word }}
+                <span class="footer-marquee-star">✳</span>
+              </li>
+            }
+          </ul>
+        }
+      </div>
+    </div>
+
+    <div class="footer-inner">
+      <div class="footer-lead">
+        <p class="footer-eyebrow">
+          <span class="footer-eyebrow-dot" aria-hidden="true"></span>
+          {{ 'footer.eyebrow' | t }}
+        </p>
+
+        <h2 class="footer-title">{{ 'footer.title' | t }}</h2>
+
+        <a
+          class="footer-cta"
+          data-magnetic="0.28"
+          [href]="whatsappUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>{{ 'footer.cta' | t }}</span>
+          <span class="footer-cta-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <nav class="footer-links" [attr.aria-label]="'footer.social.aria' | t">
+        @for (link of links; track link.id) {
+          <a
+            class="footer-link"
+            [href]="link.href"
+            target="_blank"
+            rel="noopener noreferrer"
+            [attr.aria-label]="link.ariaKey | t"
+          >
+            <span class="footer-link-index" aria-hidden="true">{{ link.index }}</span>
+            <span class="footer-link-label">
+              <span class="footer-link-text">{{ link.label }}</span>
+              <span class="footer-link-text is-ghost" aria-hidden="true">{{ link.label }}</span>
+            </span>
+            <span class="footer-link-line" aria-hidden="true"></span>
+            <span class="footer-link-arrow" aria-hidden="true">↗</span>
+          </a>
+        }
+      </nav>
+    </div>
+
+    <div class="footer-marquee is-reverse" data-dir="rev" aria-hidden="true">
+      <div class="footer-marquee-track">
+        @for (pass of marqueePasses; track pass) {
+          <ul class="footer-marquee-group">
+            @for (word of marqueeValues; track word) {
+              <li>
+                {{ word }}
+                <span class="footer-marquee-star">✳</span>
+              </li>
+            }
+          </ul>
+        }
+      </div>
+    </div>
+
+    <div class="footer-base">
+      <p class="footer-copy">{{ 'footer.copyright' | t }}</p>
+
+      <button type="button" class="footer-top" data-magnetic="0.2" (click)="scrollToTop()">
+        <span class="footer-top-arrow" aria-hidden="true">↑</span>
+        {{ 'footer.backToTop' | t }}
+      </button>
     </div>
   </div>
 </footer>

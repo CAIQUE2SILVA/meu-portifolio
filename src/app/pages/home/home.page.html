@@ -1,18 +1,40 @@
 <div>
   <app-nav></app-nav>
 
-  <header id="inicio">
-    <div>
-      <div>
-        <h1>{{ 'hero.name' | t }}</h1>
-        <h2>{{ 'hero.role' | t }}</h2>
-        <p [innerHTML]="'hero.bio' | t"></p>
-        <div>
-          <a [routerLink]="['/home']" fragment="projetos">{{ 'hero.cta.projects' | t }}</a>
+  <div class="scroll-progress" aria-hidden="true">
+    <span class="scroll-progress-bar"></span>
+  </div>
+
+  <header id="inicio" class="hero">
+    <span class="hero-aura" aria-hidden="true"></span>
+
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="hero-eyebrow">
+          <span class="hero-eyebrow-dot" aria-hidden="true"></span>
+          {{ 'hero.eyebrow' | t }}
+        </p>
+
+        <h1 class="hero-name">{{ 'hero.name' | t }}</h1>
+        <h2 class="hero-role">{{ 'hero.role' | t }}</h2>
+        <p class="hero-bio" [innerHTML]="'hero.bio' | t"></p>
+
+        <div class="hero-actions">
+          <a class="hero-cta is-primary" data-magnetic="0.2" [routerLink]="['/home']" fragment="projetos">
+            {{ 'hero.cta.projects' | t }}
+          </a>
           <!-- Botão de currículo desabilitado temporariamente até atualização do PDF sem dados sensíveis
-          <a href="assets/cv/Resume.pdf" target="_blank" rel="noopener noreferrer">{{ 'hero.cta.cv' | t }}</a>
+          <a class="hero-cta" data-magnetic="0.2" href="assets/cv/Resume.pdf" target="_blank" rel="noopener noreferrer">
+            {{ 'hero.cta.cv' | t }}
+          </a>
           -->
-          <a href="https://wa.me/5511956386749?text=Ol%C3%A1%2C%20vim%20pelo%20seu%20portf%C3%B3lio%21" target="_blank" rel="noopener noreferrer">
+          <a
+            class="hero-cta is-contrast"
+            data-magnetic="0.2"
+            href="https://wa.me/5511956386749?text=Ol%C3%A1%2C%20vim%20pelo%20seu%20portf%C3%B3lio%21"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {{ 'hero.cta.whatsapp' | t }}
           </a>
         </div>

@@ -14,6 +14,8 @@
   "nav.lang.pt.aria": "Switch language to Portuguese",
   "nav.lang.en.aria": "Switch language to English",
 
+  "hero.eyebrow": "Available for new projects",
+  "hero.scrollCue": "Scroll to explore",
   "hero.name": "Caique Nonato da Silva",
   "hero.role": "IT Coordinator / Developer | Angular, TypeScript, Ionic",
   "hero.bio": "IT and software development professional with <strong>5+ years</strong> of experience in <strong>IT Coordination</strong>, <strong>Front-end</strong> and <strong>Technical Support</strong> (L1 to L3), from requirements gathering to end-user support.",
@@ -48,12 +50,15 @@
   "experience.exclusiva.highlight.3": "Daily use of IT tools and services: GLPI, Zabbix, Windows Server, Active Directory, corporate networks and asset management.",
   "experience.exclusiva.highlight.4": "Focus on delivering quality solutions, aligning technology, processes and people to drive operational efficiency and business value.",
 
+  "projetos.eyebrow": "Selected work",
   "projetos.title": "Featured Projects",
   "projetos.subtitle": "Public projects from my GitHub (with source code and, when available, live demo).",
-  "projetos.implementation": "Implementation:",
-  "projetos.benefit": "Benefit:",
-  "projetos.viewCode": "View Code →",
-  "projetos.viewDemo": "View Demo →",
+  "projetos.implementation": "Implementation",
+  "projetos.benefit": "Benefit",
+  "projetos.viewCode": "View Code",
+  "projetos.viewDemo": "View Demo",
+  "projetos.hint": "Scroll to browse",
+  "projetos.kind": "Project",
 
   "projects.casamento.title": "casamento-website",
   "projects.casamento.description": "Wedding website with guest management and RSVP, integrating a real-time database.",
@@ -88,7 +93,14 @@
   "educacao.item3.title": "Front-End Specialist",
   "educacao.item3.institution": "Modern Web Development",
 
+  "footer.eyebrow": "Open to opportunities",
+  "footer.giant": "Let's talk",
+  "footer.title": "Let's build something worth using.",
+  "footer.cta": "Start a conversation",
+  "footer.social.aria": "Social links and contacts",
+  "footer.backToTop": "Back to top",
   "footer.copyright": "© Caique Nonato da Silva. Built with Angular.",
   "footer.github.aria": "GitHub",
-  "footer.linkedin.aria": "LinkedIn"
+  "footer.linkedin.aria": "LinkedIn",
+  "footer.whatsapp.aria": "WhatsApp"
 }

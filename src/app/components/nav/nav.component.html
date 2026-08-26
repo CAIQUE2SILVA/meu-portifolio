@@ -1,7 +1,25 @@
 <nav>
   <div>
     <span>CN.</span>
-    <div>
+    <div data-lang-toggle data-lang-toggle-bar>
+      <button
+        type="button"
+        [class.is-active]="language.lang() === 'pt'"
+        [attr.aria-label]="'nav.lang.pt.aria' | t"
+        (click)="setLang('pt')"
+      >
+        {{ 'nav.lang.pt' | t }}
+      </button>
+      <button
+        type="button"
+        [class.is-active]="language.lang() === 'en'"
+        [attr.aria-label]="'nav.lang.en.aria' | t"
+        (click)="setLang('en')"
+      >
+        {{ 'nav.lang.en' | t }}
+      </button>
+    </div>
+    <div data-nav-links>
       <a [routerLink]="['/home']" fragment="inicio">{{ 'nav.inicio' | t }}</a>
       <a [routerLink]="['/home']" fragment="sobre">{{ 'nav.sobre' | t }}</a>
       <a [routerLink]="['/home']" fragment="skills">{{ 'nav.skills' | t }}</a>
@@ -29,6 +47,7 @@
     </div>
     <button
       type="button"
+      data-menu-toggle
       [attr.aria-label]="'nav.menu.open' | t"
       [attr.aria-expanded]="mobileOpen()"
       (click)="toggleMobile()"
@@ -46,24 +65,6 @@
       <a [routerLink]="['/home']" fragment="experiencia" (click)="closeMobile()">{{ 'nav.experiencia' | t }}</a>
       <a [routerLink]="['/home']" fragment="projetos" (click)="closeMobile()">{{ 'nav.projetos' | t }}</a>
       <a [routerLink]="['/home']" fragment="educacao" (click)="closeMobile()">{{ 'nav.educacao' | t }}</a>
-      <div data-lang-toggle data-lang-toggle-mobile>
-        <button
-          type="button"
-          [class.is-active]="language.lang() === 'pt'"
-          [attr.aria-label]="'nav.lang.pt.aria' | t"
-          (click)="setLang('pt')"
-        >
-          {{ 'nav.lang.pt' | t }}
-        </button>
-        <button
-          type="button"
-          [class.is-active]="language.lang() === 'en'"
-          [attr.aria-label]="'nav.lang.en.aria' | t"
-          (click)="setLang('en')"
-        >
-          {{ 'nav.lang.en' | t }}
-        </button>
-      </div>
     </div>
   }
 </nav>

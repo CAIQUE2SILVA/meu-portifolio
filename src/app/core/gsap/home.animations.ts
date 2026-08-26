@@ -121,9 +121,13 @@ export function setupHeroParallax(root: HTMLElement, gsapInstance: typeof gsap):
 
   mm.add(MOTION_CONDITIONS, (context) => {
     const { isDesktop, reduceMotion } = readConditions(context);
-    if (!isDesktop || reduceMotion) {
+    if (reduceMotion) {
       return;
     }
+
+    const copyDrift = isDesktop ? -16 : -10;
+    const mediaDrift = isDesktop ? 14 : 8;
+    const mediaScale = isDesktop ? 0.94 : 0.97;
 
     const baseScrollTrigger = {
       trigger: hero,
@@ -134,11 +138,21 @@ export function setupHeroParallax(root: HTMLElement, gsapInstance: typeof gsap):
     };
 
     if (copy) {
-      gsapInstance.to(copy, { yPercent: -16, autoAlpha: 0, ease: 'none', scrollTrigger: { ...baseScrollTrigger } });
+      gsapInstance.to(copy, {
+        yPercent: copyDrift,
+        autoAlpha: 0,
+        ease: 'none',
+        scrollTrigger: { ...baseScrollTrigger },
+      });
     }
 
     if (media) {
-      gsapInstance.to(media, { yPercent: 14, scale: 0.94, ease: 'none', scrollTrigger: { ...baseScrollTrigger } });
+      gsapInstance.to(media, {
+        yPercent: mediaDrift,
+        scale: mediaScale,
+        ease: 'none',
+        scrollTrigger: { ...baseScrollTrigger },
+      });
     }
   }, hero);
 }

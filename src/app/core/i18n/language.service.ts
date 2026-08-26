@@ -10,6 +10,7 @@ export class LanguageService {
   readonly lang = signal<Lang>(this.readStored());
   /** Language whose dictionary is currently loaded in `dict`. */
   readonly loadedLang = signal<Lang | null>(null);
+  readonly dictionary = this.dict.asReadonly();
   readonly ready = computed(() => Object.keys(this.dict()).length > 0);
   readonly contentSynced = computed(() => this.loadedLang() === this.lang());
 

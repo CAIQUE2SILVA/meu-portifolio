@@ -1,6 +1,5 @@
 import { MOTION_CONDITIONS, readConditions } from './motion-media';
-import { EASE_SIGNATURE, gsap, ScrollTrigger, SplitText } from './register';
-import { revealLinesOnScroll } from './text-reveal';
+import { EASE_SIGNATURE, gsap, ScrollTrigger } from './register';
 
 /**
  * The footer arrives as a curtain: a rounded clip opens, the giant wordmark
@@ -62,27 +61,24 @@ export function setupFooterReveal(root: HTMLElement, gsapInstance: typeof gsap):
       );
     }
 
-    if (giant?.textContent?.trim()) {
-      SplitText.create(giant, {
-        type: 'chars,words',
-        charsClass: 'footer-giant-char',
-        autoSplit: true,
-        onSplit: (self) =>
-          gsapInstance.from(self.chars, {
-            yPercent: 130,
-            autoAlpha: 0,
-            rotationX: -55,
-            stagger: { each: 0.018, from: 'start' },
-            ease: 'none',
-            scrollTrigger: {
-              trigger: root,
-              start: 'top 92%',
-              end: 'top 32%',
-              scrub: 0.8,
-              refreshPriority: 41,
-            },
-          }),
-      });
+    if (giant) {
+      gsapInstance.fromTo(
+        giant,
+        { autoAlpha: 0, yPercent: 24, scale: 0.96 },
+        {
+          autoAlpha: 1,
+          yPercent: 0,
+          scale: 1,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: root,
+            start: 'top 92%',
+            end: 'top 32%',
+            scrub: 0.8,
+            refreshPriority: 41,
+          },
+        },
+      );
     }
   }, root);
 }
@@ -114,12 +110,19 @@ export function setupFooterContent(root: HTMLElement, gsapInstance: typeof gsap)
     }
 
     if (title) {
-      revealLinesOnScroll(
-        title,
-        gsapInstance,
-        { trigger: title, start: 'top 92%', once: true, refreshPriority: 42 },
-        0.1,
-      );
+      gsapInstance.from(title, {
+        autoAlpha: 0,
+        y: 28,
+        duration: 0.8,
+        ease: EASE_SIGNATURE,
+        immediateRender: false,
+        scrollTrigger: {
+          trigger: title,
+          start: 'top 92%',
+          toggleActions: 'play none none none',
+          refreshPriority: 42,
+        },
+      });
     }
 
     if (cta) {

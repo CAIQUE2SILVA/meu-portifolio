@@ -3,7 +3,9 @@
     <span class="footer-aura" aria-hidden="true"></span>
     <span class="footer-year" aria-hidden="true">©26</span>
 
-    <p class="footer-giant" aria-hidden="true">{{ 'footer.giant' | t }}</p>
+    @if (language.loadedLang(); as currentLang) {
+      <p class="footer-giant" [attr.data-lang]="currentLang" aria-hidden="true">{{ 'footer.giant' | t }}</p>
+    }
 
     <div class="footer-marquee" data-dir="fwd" aria-hidden="true">
       <div class="footer-marquee-track">
@@ -21,13 +23,14 @@
     </div>
 
     <div class="footer-inner">
+      @if (language.loadedLang(); as currentLang) {
       <div class="footer-lead">
         <p class="footer-eyebrow">
           <span class="footer-eyebrow-dot" aria-hidden="true"></span>
           {{ 'footer.eyebrow' | t }}
         </p>
 
-        <h2 class="footer-title">{{ 'footer.title' | t }}</h2>
+        <h2 class="footer-title" [attr.data-lang]="currentLang">{{ 'footer.title' | t }}</h2>
 
         <a
           class="footer-cta"
@@ -40,6 +43,7 @@
           <span class="footer-cta-arrow" aria-hidden="true">→</span>
         </a>
       </div>
+      }
 
       <nav class="footer-links" [attr.aria-label]="'footer.social.aria' | t">
         @for (link of links; track link.id) {

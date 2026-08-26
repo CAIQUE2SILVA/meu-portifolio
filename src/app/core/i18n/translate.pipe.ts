@@ -12,7 +12,8 @@ export class TranslatePipe implements PipeTransform {
 
   transform(key: string): string {
     this.language.lang();
-    this.language.ready();
+    this.language.loadedLang();
+    this.language.dictionary();
     return this.language.t(key);
   }
 }

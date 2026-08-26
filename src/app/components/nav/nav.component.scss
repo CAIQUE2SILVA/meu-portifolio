@@ -46,7 +46,7 @@ nav a:hover {
 }
 
 nav > div > button[data-menu-toggle] {
-  display: inline-flex;
+  display: none;
   align-items: center;
   justify-content: center;
   width: 40px;
@@ -55,6 +55,12 @@ nav > div > button[data-menu-toggle] {
   border-radius: 10px;
   background: #fff;
   flex: none;
+}
+
+@media (max-width: 767px) {
+  nav > div > button[data-menu-toggle] {
+    display: inline-flex;
+  }
 }
 
 nav > div > button[data-menu-toggle]:hover {
@@ -155,7 +161,7 @@ nav [data-lang-toggle-mobile] {
     margin-left: 8px;
   }
 
-  nav button[data-menu-toggle] {
+  nav > div > button[data-menu-toggle] {
     display: none;
   }
 

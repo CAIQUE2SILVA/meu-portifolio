@@ -8,7 +8,10 @@ export class LanguageService {
   private readonly dict = signal<Record<string, string>>({});
 
   readonly lang = signal<Lang>(this.readStored());
+  /** Language whose dictionary is currently loaded in `dict`. */
+  readonly loadedLang = signal<Lang | null>(null);
   readonly ready = computed(() => Object.keys(this.dict()).length > 0);
+  readonly contentSynced = computed(() => this.loadedLang() === this.lang());
 
   constructor(private readonly http: HttpClient) {
     this.load(this.lang());
@@ -19,6 +22,10 @@ export class LanguageService {
   }
 
   setLang(lang: Lang): void {
+    if (lang === this.lang()) {
+      return;
+    }
+
     localStorage.setItem('portfolio.lang', lang);
     this.lang.set(lang);
     this.load(lang);
@@ -32,6 +39,7 @@ export class LanguageService {
   private load(lang: Lang): void {
     this.http.get<Record<string, string>>(`assets/i18n/${lang}.json`).subscribe((dictionary) => {
       this.dict.set(dictionary);
+      this.loadedLang.set(lang);
       document.documentElement.lang = lang === 'en' ? 'en' : 'pt-BR';
     });
   }

@@ -82,18 +82,36 @@ export class HomePage implements OnDestroy {
       this.meta.updateTag({ name: 'twitter:description', content: this.language.t('seo.description') });
     });
 
-    // SplitText measures line boxes, so it can only run once the dictionary has
-    // been applied to the DOM — and it has to run again on every language swap.
     effect(() => {
-      if (!this.viewReady() || !this.language.ready()) {
+      if (!this.viewReady()) {
         return;
       }
 
+      // Release SplitText wrappers as soon as the user picks a new language,
+      // before the next dictionary is painted into the DOM.
       this.language.lang();
-      this.scheduleGsapInit();
+      this.teardownGsap();
+    });
+
+    // SplitText measures line boxes, so it can only run once the dictionary has
+    // been applied to the DOM — and it has to run again on every language swap.
+    effect(() => {
+      if (!this.viewReady() || !this.language.ready() || !this.language.contentSynced()) {
+        return;
+      }
+
+      this.language.loadedLang();
+
+      afterNextRender(() => this.scheduleGsapInit(), { injector: this.injector });
     });
 
     afterNextRender(() => this.viewReady.set(true), { injector: this.injector });
+  }
+
+  private teardownGsap(): void {
+    cancelAnimationFrame(this.pendingInit);
+    this.gsapCtx?.revert();
+    this.gsapCtx = undefined;
   }
 
   private scheduleGsapInit(): void {
@@ -143,8 +161,6 @@ export class HomePage implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    cancelAnimationFrame(this.pendingInit);
-    this.gsapCtx?.revert();
-    this.gsapCtx = undefined;
+    this.teardownGsap();
   }
 }

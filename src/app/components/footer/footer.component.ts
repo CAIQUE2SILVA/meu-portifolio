@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject, NgZone } from '@angular/core';
 
 import { ensureGsapRegistered } from '../../core/gsap/register';
+import { LanguageService } from '../../core/i18n/language.service';
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
 
 interface FooterLink {
@@ -23,6 +24,7 @@ const WHATSAPP_URL =
   styleUrl: './footer.component.scss',
 })
 export class FooterComponent {
+  readonly language = inject(LanguageService);
   readonly whatsappUrl = WHATSAPP_URL;
 
   readonly marqueeWords = [

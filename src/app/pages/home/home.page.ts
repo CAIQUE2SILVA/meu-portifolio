@@ -9,7 +9,6 @@ import {
   NgZone,
   OnDestroy,
   signal,
-  ViewChild,
 } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
@@ -32,10 +31,6 @@ import {
   setupScrollProgress,
   setupSectionReveals,
 } from '../../core/gsap/home.animations';
-import {
-  setupProjectCardPointer,
-  setupProjectsShowcase,
-} from '../../core/gsap/projetos.animations';
 import { ensureGsapRegistered, gsap, ScrollTrigger } from '../../core/gsap/register';
 import { LanguageService } from '../../core/i18n/language.service';
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
@@ -59,8 +54,6 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
   ],
 })
 export class HomePage implements OnDestroy {
-  @ViewChild(ProjetosComponent) private readonly projetosCmp?: ProjetosComponent;
-
   private readonly title = inject(Title);
   private readonly meta = inject(Meta);
   private readonly language = inject(LanguageService);
@@ -129,9 +122,7 @@ export class HomePage implements OnDestroy {
     this.ngZone.runOutsideAngular(() => {
       const gsapInstance = ensureGsapRegistered();
       const root = this.elementRef.nativeElement as HTMLElement;
-      const projetosRoot = root.querySelector('app-projetos') as HTMLElement | null;
       const footerRoot = root.querySelector('app-footer') as HTMLElement | null;
-      const projetosCmp = this.projetosCmp;
 
       this.gsapCtx?.revert();
       this.gsapCtx = gsapInstance.context(() => {
@@ -140,16 +131,6 @@ export class HomePage implements OnDestroy {
         setupHeroParallax(root, gsapInstance);
         setupSectionReveals(root, gsapInstance);
         setupMagneticButtons(root, gsapInstance);
-
-        if (projetosRoot) {
-          setupProjectCardPointer(projetosRoot, gsapInstance);
-
-          if (projetosCmp) {
-            setupProjectsShowcase(projetosRoot, gsapInstance, (index) => {
-              this.ngZone.run(() => projetosCmp.setActiveIndex(index));
-            });
-          }
-        }
 
         if (footerRoot) {
           setupFooterReveal(footerRoot, gsapInstance);

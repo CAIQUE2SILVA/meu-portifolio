@@ -30,9 +30,10 @@ nav > div > span {
   letter-spacing: -0.02em;
   color: #4f46e5;
   white-space: nowrap;
+  flex: none;
 }
 
-nav > div > div {
+nav > div > div[data-nav-links] {
   display: none;
   gap: 24px;
   font-size: 14px;
@@ -44,7 +45,7 @@ nav a:hover {
   color: #4f46e5;
 }
 
-nav button {
+nav > div > button[data-menu-toggle] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -53,13 +54,14 @@ nav button {
   border: 1px solid #e2e8f0;
   border-radius: 10px;
   background: #fff;
+  flex: none;
 }
 
-nav button:hover {
+nav > div > button[data-menu-toggle]:hover {
   background: #f8fafc;
 }
 
-nav button svg {
+nav > div > button[data-menu-toggle] svg {
   width: 22px;
   height: 22px;
 }
@@ -103,11 +105,14 @@ nav [data-mobile-menu] a:hover {
 nav [data-lang-toggle] {
   display: inline-flex;
   gap: 4px;
-  margin-left: 8px;
   padding: 2px;
   border: 1px solid #e2e8f0;
   border-radius: 10px;
   background: #fff;
+}
+
+nav [data-lang-toggle-bar] {
+  margin-left: auto;
 }
 
 nav [data-lang-toggle] button {
@@ -132,18 +137,25 @@ nav [data-lang-toggle] button.is-active {
 }
 
 nav [data-lang-toggle-mobile] {
-  margin-left: 0;
   margin-top: 8px;
   width: fit-content;
 }
 
 @media (min-width: 768px) {
-  nav > div > div {
+  nav > div > div[data-nav-links] {
     display: flex;
     align-items: center;
   }
 
-  nav button {
+  nav [data-lang-toggle-bar] {
+    display: none;
+  }
+
+  nav [data-lang-toggle]:not([data-lang-toggle-bar]):not([data-lang-toggle-mobile]) {
+    margin-left: 8px;
+  }
+
+  nav button[data-menu-toggle] {
     display: none;
   }
 

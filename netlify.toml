@@ -3,6 +3,10 @@
   publish = "www"
   functions = "netlify/functions"
 
+[[edge_functions]]
+  path = "/*"
+  function = "agent-discovery"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"

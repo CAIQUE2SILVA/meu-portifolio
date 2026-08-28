@@ -6,7 +6,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build && node scripts/generate-agent-markdown.mjs",
+    "build": "ng build && node scripts/generate-agent-markdown.mjs && node scripts/generate-agent-discovery.mjs",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",

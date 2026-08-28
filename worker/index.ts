@@ -1,3 +1,5 @@
+import { isHomepagePath, isWellKnownPath, withDiscoveryHeaders, withWellKnownHeaders } from './agent-discovery';
+
 const STATIC_EXTENSIONS = new Set([
   'css',
   'gif',
@@ -7,9 +9,11 @@ const STATIC_EXTENSIONS = new Set([
   'js',
   'json',
   'map',
+  'md',
   'pdf',
   'png',
   'svg',
+  'tokens',
   'txt',
   'webp',
   'woff',
@@ -80,17 +84,30 @@ async function serveMarkdown(env: Env, request: Request): Promise<Response> {
   });
 }
 
+function isHtmlResponse(response: Response): boolean {
+  const contentType = response.headers.get('Content-Type') ?? '';
+  return contentType.includes('text/html');
+}
+
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
-    if (!acceptsMarkdown(request)) {
-      return env.ASSETS.fetch(request);
-    }
-
     const { pathname } = new URL(request.url);
-    if (hasStaticExtension(pathname)) {
-      return env.ASSETS.fetch(request);
+
+    if (isWellKnownPath(pathname)) {
+      const response = await fetchAsset(env, request, pathname);
+      return withWellKnownHeaders(pathname, response);
     }
 
-    return serveMarkdown(env, request);
+    if (acceptsMarkdown(request) && !hasStaticExtension(pathname)) {
+      return serveMarkdown(env, request);
+    }
+
+    const response = await env.ASSETS.fetch(request);
+
+    if (isHomepagePath(pathname) && isHtmlResponse(response)) {
+      return withDiscoveryHeaders(response);
+    }
+
+    return response;
   },
 } satisfies ExportedHandler<Env>;

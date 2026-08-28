@@ -5,7 +5,7 @@
 
 [[edge_functions]]
   path = "/*"
-  function = "markdown"
+  function = "agent-discovery"
 
 [[redirects]]
   from = "/*"

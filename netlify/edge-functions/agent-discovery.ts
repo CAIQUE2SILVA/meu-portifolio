@@ -1,5 +1,12 @@
 import type { Context } from '@netlify/edge-functions';
 
+const DISCOVERY_LINK_HEADER = [
+  '</.well-known/api-catalog>; rel="api-catalog"',
+  '</.well-known/agent-skills/index.json>; rel="describedby"',
+  '</.well-known/ai-catalog.json>; rel="agent-catalog"; type="application/json"',
+  '</auth.md>; rel="service-doc"; type="text/markdown"',
+].join(', ');
+
 const STATIC_EXTENSIONS = new Set([
   'css',
   'gif',
@@ -9,9 +16,11 @@ const STATIC_EXTENSIONS = new Set([
   'js',
   'json',
   'map',
+  'md',
   'pdf',
   'png',
   'svg',
+  'tokens',
   'txt',
   'webp',
   'woff',
@@ -34,20 +43,15 @@ function hasStaticExtension(pathname: string): boolean {
   return STATIC_EXTENSIONS.has(lastSegment.slice(dotIndex + 1).toLowerCase());
 }
 
+function isHomepagePath(pathname: string): boolean {
+  return pathname === '/' || pathname === '/home' || pathname === '/home/';
+}
+
 function estimateTokens(text: string): string {
   return String(Math.ceil(text.length / 4));
 }
 
-export default async (request: Request, context: Context): Promise<Response> => {
-  if (!acceptsMarkdown(request)) {
-    return context.next();
-  }
-
-  const { pathname } = new URL(request.url);
-  if (hasStaticExtension(pathname)) {
-    return context.next();
-  }
-
+async function serveMarkdown(request: Request): Promise<Response> {
   const markdownUrl = new URL('/portfolio.md', request.url);
   const markdownResponse = await fetch(markdownUrl.toString(), {
     headers: { Accept: 'text/plain' },
@@ -79,4 +83,31 @@ export default async (request: Request, context: Context): Promise<Response> => 
       'Cache-Control': 'public, max-age=3600',
     },
   });
+}
+
+function withDiscoveryHeaders(response: Response): Response {
+  const headers = new Headers(response.headers);
+  headers.set('Link', DISCOVERY_LINK_HEADER);
+  headers.append('Vary', 'Accept');
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
+
+export default async (request: Request, context: Context): Promise<Response> => {
+  const { pathname } = new URL(request.url);
+
+  if (acceptsMarkdown(request) && !hasStaticExtension(pathname)) {
+    return serveMarkdown(request);
+  }
+
+  const response = await context.next();
+
+  if (isHomepagePath(pathname) && (response.headers.get('Content-Type') ?? '').includes('text/html')) {
+    return withDiscoveryHeaders(response);
+  }
+
+  return response;
 };

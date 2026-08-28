@@ -4,7 +4,15 @@
 
 This repo is a single frontend app: an **Angular 19 + Ionic/Capacitor** portfolio SPA (`meu-portifolio`). There is no backend to run; the contact form posts to Netlify Forms in production only. Node 22 and Google Chrome are preinstalled on the VM.
 
-**Git commits:** use only `CAIQUE2SILVA <64806656+CAIQUE2SILVA@users.noreply.github.com>` as author and committer. Do not add `Co-authored-by` trailers or commit as `Cursor Agent`.
+**Git commits:** use only `CAIQUE2SILVA <64806656+CAIQUE2SILVA@users.noreply.github.com>` as author and committer. Do not add `Co-authored-by` trailers or commit as `Cursor Agent`. Before the first commit in a session, run:
+
+```bash
+git config user.name "CAIQUE2SILVA"
+git config user.email "64806656+CAIQUE2SILVA@users.noreply.github.com"
+git config core.hooksPath .githooks
+```
+
+The repo `.githooks/` keeps Cursor secret scanning but disables the automatic co-author hook.
 
 Standard commands live in `package.json` and `README.md`. Key notes:
 

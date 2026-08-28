@@ -1,0 +1,8 @@
+#!/bin/bash
+set -euo pipefail
+
+CURSOR_HOOKS="/home/ubuntu/.cursor/agent-hooks/L3dvcmtzcGFjZQ"
+
+if [ -x "$CURSOR_HOOKS/commit-msg.cursor" ]; then
+  "$CURSOR_HOOKS/commit-msg.cursor" "$@"
+fi

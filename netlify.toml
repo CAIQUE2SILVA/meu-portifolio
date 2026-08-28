@@ -3,6 +3,10 @@
   publish = "www"
   functions = "netlify/functions"
 
+[[edge_functions]]
+  path = "/*"
+  function = "markdown"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"

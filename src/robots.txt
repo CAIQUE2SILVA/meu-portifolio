@@ -2,6 +2,6 @@
 User-agent: *
 Allow: /
 
-Agentmap: https://caique-portifolio.netlify.app/.well-known/ai-catalog.json
+Agentmap: https://www.caiquenonato.com.br/.well-known/ai-catalog.json
 
-Sitemap: https://caique-portifolio.netlify.app/sitemap.xml
+Sitemap: https://www.caiquenonato.com.br/sitemap.xml

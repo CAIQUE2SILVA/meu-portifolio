@@ -16,8 +16,11 @@ const WELL_KNOWN_CONTENT_TYPES: Record<string, string> = {
   '/.well-known/jwks.json': 'application/json; charset=utf-8',
   '/.well-known/health': 'application/json; charset=utf-8',
   '/.well-known/openapi/contact.json': 'application/json; charset=utf-8',
+  '/.well-known/agent/register': 'application/json; charset=utf-8',
+  '/.well-known/agent/claim': 'application/json; charset=utf-8',
   '/.well-known/agent-skills/portfolio/SKILL.md': 'text/markdown; charset=utf-8',
   '/auth.md': 'text/markdown; charset=utf-8',
+  '/portfolio.md': 'text/markdown; charset=utf-8',
 };
 
 export function isHomepagePath(pathname: string): boolean {
@@ -25,7 +28,11 @@ export function isHomepagePath(pathname: string): boolean {
 }
 
 export function isWellKnownPath(pathname: string): boolean {
-  return pathname.startsWith('/.well-known/') || pathname === '/auth.md';
+  return (
+    pathname.startsWith('/.well-known/') ||
+    pathname === '/auth.md' ||
+    pathname === '/portfolio.md'
+  );
 }
 
 export function withDiscoveryHeaders(response: Response): Response {

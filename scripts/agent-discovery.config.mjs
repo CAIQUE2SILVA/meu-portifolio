@@ -1,4 +1,5 @@
-export const SITE_ORIGIN = 'https://caique-portifolio.netlify.app';
+export const SITE_ORIGIN = 'https://www.caiquenonato.com.br';
+export const SITE_HOSTNAME = new URL(SITE_ORIGIN).hostname;
 
 export const WELL_KNOWN = {
   apiCatalog: '/.well-known/api-catalog',
@@ -7,6 +8,8 @@ export const WELL_KNOWN = {
   mcpServerCard: '/.well-known/mcp/server-card.json',
   oauthAuthorizationServer: '/.well-known/oauth-authorization-server',
   oauthProtectedResource: '/.well-known/oauth-protected-resource',
+  agentRegister: '/.well-known/agent/register',
+  agentClaim: '/.well-known/agent/claim',
   health: '/.well-known/health',
   contactOpenApi: '/.well-known/openapi/contact.json',
   authMd: '/auth.md',

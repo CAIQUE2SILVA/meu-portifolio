@@ -7,7 +7,7 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { SITE_ORIGIN, WELL_KNOWN, absolute } from './agent-discovery.config.mjs';
+import { SITE_ORIGIN, SITE_HOSTNAME, WELL_KNOWN, absolute } from './agent-discovery.config.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..');
@@ -152,6 +152,39 @@ writeOutput('.well-known/api-catalog', json(apiCatalog));
 
 writeOutput('.well-known/health', json({ status: 'ok', service: 'meu-portifolio' }));
 
+const agentRegister = {
+  registration_endpoint: absolute(WELL_KNOWN.agentRegister),
+  claim_uri: absolute(WELL_KNOWN.agentClaim),
+  authorization_server: absolute(WELL_KNOWN.oauthAuthorizationServer),
+  protected_resource_metadata: absolute(WELL_KNOWN.oauthProtectedResource),
+  identity_types_supported: ['anonymous'],
+  credential_types_supported: ['api_key'],
+  scopes_supported: ['contact:write', 'portfolio:read'],
+  methods: [
+    {
+      identity_type: 'anonymous',
+      credential_types_supported: ['api_key'],
+      claim_uri: absolute(WELL_KNOWN.agentClaim),
+    },
+  ],
+  instructions:
+    'Read-only portfolio access requires no registration. To request contact:write, POST here with {"identity_type":"anonymous","scopes":["contact:write"]}.',
+};
+
+writeOutput('.well-known/agent/register', json(agentRegister));
+
+writeOutput(
+  '.well-known/agent/claim',
+  json({
+    claim_uri: absolute(WELL_KNOWN.agentClaim),
+    authorization_server: absolute(WELL_KNOWN.oauthAuthorizationServer),
+    identity_types_supported: ['anonymous'],
+    credential_types_supported: ['api_key'],
+    instructions:
+      'Present the api_key returned from registration as Authorization: Bearer <api_key> when calling the contact API.',
+  }),
+);
+
 const oauthAuthorizationServer = {
   issuer: SITE_ORIGIN,
   authorization_endpoint: absolute('/.well-known/oauth/authorize'),
@@ -163,11 +196,11 @@ const oauthAuthorizationServer = {
   scopes_supported: ['contact:write', 'portfolio:read'],
   agent_auth: {
     skill: absolute(WELL_KNOWN.authMd),
-    register_uri: absolute('/.well-known/agent/register'),
+    register_uri: absolute(WELL_KNOWN.agentRegister),
     identity_types_supported: ['anonymous'],
     anonymous: {
       credential_types_supported: ['api_key'],
-      claim_uri: absolute('/.well-known/agent/claim'),
+      claim_uri: absolute(WELL_KNOWN.agentClaim),
     },
   },
 };
@@ -229,7 +262,7 @@ const aiCatalog = {
   },
   entries: [
     {
-      identifier: 'urn:air:caique-portifolio.netlify.app:skill:portfolio-content',
+      identifier: `urn:air:${SITE_HOSTNAME}:skill:portfolio-content`,
       displayName: 'Portfolio Content Skill',
       type: 'text/markdown',
       url: portfolioSkillUrl,
@@ -240,7 +273,7 @@ const aiCatalog = {
       ],
     },
     {
-      identifier: 'urn:air:caique-portifolio.netlify.app:api:contact',
+      identifier: `urn:air:${SITE_HOSTNAME}:api:contact`,
       displayName: 'Portfolio Contact API',
       type: 'application/openapi+json',
       url: absolute(WELL_KNOWN.contactOpenApi),
@@ -250,7 +283,7 @@ const aiCatalog = {
       ],
     },
     {
-      identifier: 'urn:air:caique-portifolio.netlify.app:server:webmcp',
+      identifier: `urn:air:${SITE_HOSTNAME}:server:webmcp`,
       displayName: 'Portfolio WebMCP Tools',
       type: 'application/mcp-server-card+json',
       url: absolute(WELL_KNOWN.mcpServerCard),
@@ -295,9 +328,25 @@ Protected resource metadata: ${absolute(WELL_KNOWN.oauthProtectedResource)}
 
 ## Agent registration
 
-OAuth authorization server metadata: ${absolute(WELL_KNOWN.oauthAuthorizationServer)}
+Read-only portfolio access does **not** require registration.
 
-Anonymous agent registration is supported for read-only portfolio access. Use the \`agent_auth.register_uri\` advertised in the authorization server metadata when write scopes are required.
+| Field | Value |
+|-------|-------|
+| register_uri | ${absolute(WELL_KNOWN.agentRegister)} |
+| claim_uri | ${absolute(WELL_KNOWN.agentClaim)} |
+| authorization_server | ${absolute(WELL_KNOWN.oauthAuthorizationServer)} |
+| identity_types_supported | anonymous |
+| credential_types_supported | api_key |
+| scopes_supported | contact:write, portfolio:read |
+
+### Anonymous registration flow
+
+1. Read registration requirements: \`GET ${absolute(WELL_KNOWN.agentRegister)}\`
+2. Request write access: \`POST ${absolute(WELL_KNOWN.agentRegister)}\` with body \`{"identity_type":"anonymous","scopes":["contact:write"]}\`
+3. Claim credentials: follow \`${absolute(WELL_KNOWN.agentClaim)}\`
+4. Call the contact API with \`Authorization: Bearer <api_key>\`
+
+OAuth authorization server metadata (includes \`agent_auth\`): ${absolute(WELL_KNOWN.oauthAuthorizationServer)}
 
 ## WebMCP
 
@@ -325,6 +374,10 @@ const headers = `/*
   Content-Type: application/json
   Access-Control-Allow-Origin: *
 
+/.well-known/agent/*
+  Content-Type: application/json
+  Access-Control-Allow-Origin: *
+
 /.well-known/oauth-authorization-server
   Content-Type: application/json
   Access-Control-Allow-Origin: *
@@ -343,6 +396,16 @@ const headers = `/*
 
 /auth.md
   Content-Type: text/markdown; charset=utf-8
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=3600
+
+/portfolio.md
+  Content-Type: text/markdown; charset=utf-8
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=3600
+
+/portfolio.tokens
+  Content-Type: text/plain; charset=utf-8
   Access-Control-Allow-Origin: *
 `;
 

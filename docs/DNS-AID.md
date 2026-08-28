@@ -1,46 +1,43 @@
 # DNS for AI Discovery (DNS-AID)
 
-This repository publishes HTTP-based agent discovery (Link headers, `/.well-known/*`, `auth.md`, WebMCP). **DNS-AID records must be configured at your DNS provider** — they cannot be committed to the application repository.
+Este repositório publica descoberta HTTP (Link headers, `/.well-known/*`, `auth.md`, WebMCP). **Registros DNS-AID devem ser criados no provedor DNS** — não podem ser commitados no código.
 
-## Target domain
+## Domínio alvo
 
-`caique-portifolio.netlify.app` (or your custom domain if you add one in Netlify/Cloudflare).
+`www.caiquenonato.com.br` (canônico) e `caiquenonato.com.br` (apex).
 
-## Recommended records
+## Registros recomendados
 
-Publish an index entry and optional catalog pointer using SVCB/HTTPS records under the `_agents` namespace:
-
-```dns
-; Index entry for agent discovery (ServiceMode SVCB)
-_index._agents.caique-portifolio.netlify.app. 3600 IN HTTPS 1 caique-portifolio.netlify.app. alpn=h3,h2 port=443
-
-; Optional catalog pointer (TXT fallback while draft parameters are experimental)
-_catalog._agents.caique-portifolio.netlify.app. 3600 IN TXT "url=https://caique-portifolio.netlify.app/.well-known/ai-catalog.json"
-```
-
-If you use a custom apex domain (for example `example.com`), replace the hostnames accordingly:
+No painel DNS da zona `caiquenonato.com.br` (Cloudflare):
 
 ```dns
-_index._agents.example.com. 3600 IN HTTPS 1 example.com. alpn=h3,h2 port=443 mandatory=alpn,port
-_catalog._agents.example.com. 3600 IN TXT "url=https://example.com/.well-known/ai-catalog.json"
+; Entrada de índice para descoberta de agentes
+_index._agents.caiquenonato.com.br. 3600 IN HTTPS 1 www.caiquenonato.com.br. alpn=h3,h2 port=443 mandatory=alpn,port
+
+; Ponteiro para o manifesto ARD
+_catalog._agents.caiquenonato.com.br. 3600 IN TXT "url=https://www.caiquenonato.com.br/.well-known/ai-catalog.json"
 ```
+
+Se o painel não aceitar registros `_agents` no subdomínio `www`, use o apex `caiquenonato.com.br` como mostrado acima.
 
 ## DNSSEC
 
-DNS-AID discovery is authenticated when the public zone is signed with DNSSEC. Enable DNSSEC in your DNS provider (Cloudflare, Netlify DNS, Route 53, etc.) and publish DS records at your registrar.
+DNS-AID autenticado exige zona assinada com DNSSEC:
 
-## Validation
+1. Cloudflare → **DNS** → **Settings** → **Enable DNSSEC**
+2. Publique o registro **DS** no registrador do domínio
+3. Aguarde propagação (até 24 h)
 
-After DNS propagation, validate with:
+## Validação
 
 ```bash
 curl -X POST https://isitagentready.com/api/scan \
   -H "Content-Type: application/json" \
-  -d '{"url": "https://caique-portifolio.netlify.app"}'
+  -d '{"url": "https://www.caiquenonato.com.br"}'
 ```
 
-Check `checks.discoverability.dnsAid.status`.
+Verifique `checks.discoverability.dnsAid.status`.
 
-## Notes for Netlify subdomains
+## Cloudflare
 
-Netlify-managed `*.netlify.app` subdomains may not allow custom `_agents` records. For full DNS-AID support, attach a custom domain where you control DNS and DNSSEC.
+Se o tráfego passa pelo Cloudflare, configure também as exceções de bot em [`CLOUDFLARE-AGENT-ACCESS.md`](./CLOUDFLARE-AGENT-ACCESS.md).

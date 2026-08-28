@@ -7,6 +7,8 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { SITE_ORIGIN } from './agent-discovery.config.mjs';
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..');
 const outDir = join(root, 'www');
@@ -87,8 +89,7 @@ const EDUCATION = [
   { titleKey: 'educacao.item3.title', institutionKey: 'educacao.item3.institution' },
 ];
 
-const SITE_URL = 'https://caique-portifolio.netlify.app';
-const PROFILE_IMAGE = `${SITE_URL}/assets/images/profile.png`;
+const PROFILE_IMAGE = `${SITE_ORIGIN}/assets/images/profile.png`;
 
 function stripHtml(text) {
   return text.replace(/<\/?strong>/g, '**').replace(/<[^>]+>/g, '');

@@ -4,6 +4,8 @@
 
 This repo is a single frontend app: an **Angular 19 + Ionic/Capacitor** portfolio SPA (`meu-portifolio`). There is no backend to run; the contact form posts to Netlify Forms in production only. Node 22 and Google Chrome are preinstalled on the VM.
 
+**Git commits:** use only `CAIQUE2SILVA <64806656+CAIQUE2SILVA@users.noreply.github.com>` as author and committer. Do not add `Co-authored-by` trailers or commit as `Cursor Agent`.
+
 Standard commands live in `package.json` and `README.md`. Key notes:
 
 - **Dev server:** `npm start` (alias for `ng serve`) serves at `http://localhost:4200`. Default build configuration is `production`; `ng serve` uses the `development` configuration.

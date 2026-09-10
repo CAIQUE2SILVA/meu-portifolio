@@ -22,6 +22,7 @@ import { EducacaoComponent } from '../../components/educacao/educacao.component'
 import { FooterComponent } from '../../components/footer/footer.component';
 import {
   setupFooterContent,
+  setupFooterMarquee,
   setupFooterReveal,
 } from '../../core/gsap/footer.animations';
 import {
@@ -168,6 +169,7 @@ export class HomePage implements OnDestroy {
         if (footerRoot) {
           setupFooterReveal(footerRoot, gsapInstance);
           setupFooterContent(footerRoot, gsapInstance);
+          setupFooterMarquee(footerRoot, gsapInstance);
         }
       }, root);
 

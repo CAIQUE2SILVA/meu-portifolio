@@ -41,6 +41,7 @@ export function setupFooterReveal(root: HTMLElement, gsapInstance: typeof gsap):
         clipPath: 'inset(0% 0% 0% 0% round 0px)',
         yPercent: 0,
         ease: 'none',
+        immediateRender: false,
         scrollTrigger: { ...baseScrollTrigger },
       },
     );
@@ -49,7 +50,13 @@ export function setupFooterReveal(root: HTMLElement, gsapInstance: typeof gsap):
       gsapInstance.fromTo(
         aura,
         { scale: 1.18, yPercent: 10 },
-        { scale: 1, yPercent: 0, ease: 'none', scrollTrigger: { ...baseScrollTrigger } },
+        {
+          scale: 1,
+          yPercent: 0,
+          ease: 'none',
+          immediateRender: false,
+          scrollTrigger: { ...baseScrollTrigger },
+        },
       );
     }
 
@@ -57,7 +64,13 @@ export function setupFooterReveal(root: HTMLElement, gsapInstance: typeof gsap):
       gsapInstance.fromTo(
         year,
         { xPercent: 18, autoAlpha: 0.15 },
-        { xPercent: 0, autoAlpha: 1, ease: 'none', scrollTrigger: { ...baseScrollTrigger } },
+        {
+          xPercent: 0,
+          autoAlpha: 1,
+          ease: 'none',
+          immediateRender: false,
+          scrollTrigger: { ...baseScrollTrigger },
+        },
       );
     }
 
@@ -70,6 +83,7 @@ export function setupFooterReveal(root: HTMLElement, gsapInstance: typeof gsap):
           yPercent: 0,
           scale: 1,
           ease: 'none',
+          immediateRender: false,
           scrollTrigger: {
             trigger: root,
             start: 'top 92%',
@@ -187,10 +201,12 @@ export function setupFooterMarquee(root: HTMLElement, gsapInstance: typeof gsap)
   const mm = gsapInstance.matchMedia();
 
   mm.add(MOTION_CONDITIONS, (context) => {
-    const { reduceMotion } = readConditions(context);
-    if (reduceMotion) {
+    const { isDesktop, reduceMotion } = readConditions(context);
+    if (!isDesktop || reduceMotion) {
       return;
     }
+
+    marquees.forEach((marquee) => marquee.classList.add('is-gsap-driven'));
 
     const loops = marquees.map((marquee: HTMLElement) => {
       const track = marquee.querySelector<HTMLElement>('.footer-marquee-track');
@@ -199,12 +215,18 @@ export function setupFooterMarquee(root: HTMLElement, gsapInstance: typeof gsap)
       }
 
       const reverse = marquee.classList.contains('is-reverse');
-      const loop = gsapInstance.to(track, {
-        xPercent: reverse ? 50 : -50,
-        repeat: -1,
-        duration: reverse ? 32 : 24,
-        ease: 'none',
-      });
+      const loop = reverse
+        ? gsapInstance.fromTo(
+            track,
+            { xPercent: -50 },
+            { xPercent: 0, repeat: -1, duration: 32, ease: 'none' },
+          )
+        : gsapInstance.to(track, {
+            xPercent: -50,
+            repeat: -1,
+            duration: 24,
+            ease: 'none',
+          });
 
       return { loop, reverse };
     }).filter((item): item is { loop: gsap.core.Tween; reverse: boolean } => !!item);
@@ -232,5 +254,9 @@ export function setupFooterMarquee(root: HTMLElement, gsapInstance: typeof gsap)
         });
       },
     });
+
+    return () => {
+      marquees.forEach((marquee) => marquee.classList.remove('is-gsap-driven'));
+    };
   }, root);
 }

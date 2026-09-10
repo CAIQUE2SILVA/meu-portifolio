@@ -229,7 +229,7 @@ const aiCatalog = {
   },
   entries: [
     {
-      identifier: 'urn:air:caique-portifolio.netlify.app:skill:portfolio-content',
+      identifier: 'urn:air:caiquenonato.com.br:skill:portfolio-content',
       displayName: 'Portfolio Content Skill',
       type: 'text/markdown',
       url: portfolioSkillUrl,
@@ -240,7 +240,7 @@ const aiCatalog = {
       ],
     },
     {
-      identifier: 'urn:air:caique-portifolio.netlify.app:api:contact',
+      identifier: 'urn:air:caiquenonato.com.br:api:contact',
       displayName: 'Portfolio Contact API',
       type: 'application/openapi+json',
       url: absolute(WELL_KNOWN.contactOpenApi),
@@ -250,7 +250,7 @@ const aiCatalog = {
       ],
     },
     {
-      identifier: 'urn:air:caique-portifolio.netlify.app:server:webmcp',
+      identifier: 'urn:air:caiquenonato.com.br:server:webmcp',
       displayName: 'Portfolio WebMCP Tools',
       type: 'application/mcp-server-card+json',
       url: absolute(WELL_KNOWN.mcpServerCard),

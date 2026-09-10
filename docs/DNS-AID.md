@@ -4,7 +4,7 @@ This repository publishes HTTP-based agent discovery (Link headers, `/.well-know
 
 ## Target domain
 
-`caique-portifolio.netlify.app` (or your custom domain if you add one in Netlify/Cloudflare).
+`caiquenonato.com.br` (custom domain; also deployed via Netlify and Cloudflare Workers).
 
 ## Recommended records
 
@@ -12,13 +12,13 @@ Publish an index entry and optional catalog pointer using SVCB/HTTPS records und
 
 ```dns
 ; Index entry for agent discovery (ServiceMode SVCB)
-_index._agents.caique-portifolio.netlify.app. 3600 IN HTTPS 1 caique-portifolio.netlify.app. alpn=h3,h2 port=443
+_index._agents.caiquenonato.com.br. 3600 IN HTTPS 1 caiquenonato.com.br. alpn=h3,h2 port=443 mandatory=alpn,port
 
 ; Optional catalog pointer (TXT fallback while draft parameters are experimental)
-_catalog._agents.caique-portifolio.netlify.app. 3600 IN TXT "url=https://caique-portifolio.netlify.app/.well-known/ai-catalog.json"
+_catalog._agents.caiquenonato.com.br. 3600 IN TXT "url=https://caiquenonato.com.br/.well-known/ai-catalog.json"
 ```
 
-If you use a custom apex domain (for example `example.com`), replace the hostnames accordingly:
+If you use a different apex domain, replace the hostnames accordingly:
 
 ```dns
 _index._agents.example.com. 3600 IN HTTPS 1 example.com. alpn=h3,h2 port=443 mandatory=alpn,port
@@ -36,11 +36,11 @@ After DNS propagation, validate with:
 ```bash
 curl -X POST https://isitagentready.com/api/scan \
   -H "Content-Type: application/json" \
-  -d '{"url": "https://caique-portifolio.netlify.app"}'
+  -d '{"url": "https://caiquenonato.com.br"}'
 ```
 
 Check `checks.discoverability.dnsAid.status`.
 
 ## Notes for Netlify subdomains
 
-Netlify-managed `*.netlify.app` subdomains may not allow custom `_agents` records. For full DNS-AID support, attach a custom domain where you control DNS and DNSSEC.
+Netlify-managed `*.netlify.app` subdomains may not allow custom `_agents` records. The production site uses the custom domain above for full DNS-AID support where DNS and DNSSEC are controlled.

@@ -11,7 +11,13 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     id: 'state',
     titleKey: 'skills.state.title',
     icon: '🧠',
-    skills: ['NgRx', 'RxJS', 'Signals', 'Acessibilidade (WCAG)', 'Performance (Lighthouse)'],
+    skills: ['NgRx', 'RxJS', 'Signals'],
+  },
+  {
+    id: 'practices',
+    titleKey: 'skills.practices.title',
+    icon: '✨',
+    skills: ['Acessibilidade (WCAG)', 'Performance (Lighthouse)'],
   },
   {
     id: 'backend',

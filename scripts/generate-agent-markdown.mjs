@@ -61,7 +61,8 @@ const PROJECTS = [
 
 const SKILL_CATEGORIES = [
   { titleKey: 'skills.frontend.title', skills: ['Angular', 'TypeScript', 'JavaScript', 'HTML', 'CSS / SCSS', 'Ionic', 'React'] },
-  { titleKey: 'skills.state.title', skills: ['NgRx', 'RxJS', 'Signals', 'Acessibilidade (WCAG)', 'Performance (Lighthouse)'] },
+  { titleKey: 'skills.state.title', skills: ['NgRx', 'RxJS', 'Signals'] },
+  { titleKey: 'skills.practices.title', skills: ['Acessibilidade (WCAG)', 'Performance (Lighthouse)'] },
   { titleKey: 'skills.backend.title', skills: ['Node.js', 'Docker', 'C#'] },
   { titleKey: 'skills.tools.title', skills: ['Git / GitHub', 'Figma', 'Firebase', 'VS Code', 'GLPI', 'Zabbix'] },
   { titleKey: 'skills.itops.title', skills: ['Windows Server', 'Active Directory', 'Redes corporativas', 'Service Desk (N1–N3)', 'Gestão de SLAs', 'Gestão de ativos', 'ITIL'] },
@@ -78,6 +79,8 @@ const EXPERIENCE = {
     'experience.exclusiva.highlight.2',
     'experience.exclusiva.highlight.3',
     'experience.exclusiva.highlight.4',
+    'experience.exclusiva.highlight.5',
+    'experience.exclusiva.highlight.6',
   ],
 };
 

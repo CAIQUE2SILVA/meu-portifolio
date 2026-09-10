@@ -104,8 +104,8 @@ const EDUCATION = [
   { titleKey: 'educacao.item3.title', institutionKey: 'educacao.item3.institution' },
 ];
 
-const SITE_URL = 'https://caiquenonato.com.br';
-const PROFILE_IMAGE = `${SITE_URL}/assets/images/profile.png`;
+const SITE_URL = 'https://www.caiquenonato.com.br';
+const PROFILE_IMAGE = `${SITE_URL}/assets/images/profile.webp`;
 
 function stripHtml(text) {
   return text.replace(/<\/?strong>/g, '**').replace(/<[^>]+>/g, '');

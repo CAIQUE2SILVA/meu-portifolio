@@ -183,7 +183,7 @@ a {
    from a collapsed inset on page load. */
 .hero-media {
   width: 16rem;
-  height: 16rem;
+  aspect-ratio: 2 / 3;
 }
 
 .hero-media-frame {
@@ -252,7 +252,6 @@ a {
 
   .hero-media {
     width: 18rem;
-    height: 18rem;
     flex: none;
   }
 

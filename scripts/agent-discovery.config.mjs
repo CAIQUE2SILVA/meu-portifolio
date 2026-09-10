@@ -1,4 +1,4 @@
-export const SITE_ORIGIN = 'https://caiquenonato.com.br';
+export const SITE_ORIGIN = 'https://www.caiquenonato.com.br';
 
 export const WELL_KNOWN = {
   apiCatalog: '/.well-known/api-catalog',

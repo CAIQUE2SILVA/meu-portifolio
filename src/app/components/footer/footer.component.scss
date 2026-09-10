@@ -68,9 +68,9 @@
   position: relative;
   z-index: 1;
   overflow: hidden;
-  padding: 18px 0;
+  padding: 20px 0;
   border-block: 1px solid rgba(148, 163, 184, 0.12);
-  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
 }
 
 .footer-marquee.is-reverse {
@@ -88,7 +88,7 @@
 
 .footer-marquee.is-reverse .footer-marquee-track {
   animation-name: marquee-rev;
-  animation-duration: infinite;
+  animation-duration: 32s;
 }
 
 @keyframes marquee-fwd {
@@ -113,24 +113,25 @@
   flex: none;
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 32px;
   margin: 0;
-  padding: 0 14px;
+  padding: 0 24px;
   list-style: none;
 }
 
 .footer-marquee-group li {
   display: inline-flex;
   align-items: center;
-  gap: 28px;
-  font-size: clamp(1.35rem, 3.6vw, 2.4rem);
+  gap: 32px;
+  font-size: clamp(1.25rem, 3.2vw, 2.1rem);
   font-weight: 900;
-  letter-spacing: -0.03em;
-  line-height: 1;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
   text-transform: uppercase;
   white-space: nowrap;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(203, 213, 225, 0.3);
+  -webkit-text-stroke: 1px rgba(203, 213, 225, 0.38);
+  padding-block: 2px;
 }
 
 .footer-marquee-group li:nth-child(even) {
@@ -409,5 +410,14 @@
     min-height: 0;
     clip-path: none;
     border-radius: 0;
+  }
+
+  .footer-marquee-track {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .footer-marquee {
+    mask-image: none;
   }
 }

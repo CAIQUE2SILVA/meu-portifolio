@@ -37,13 +37,13 @@ export class FooterComponent {
     'Performance',
   ];
 
-  readonly marqueeValues = [
-    'Craft',
-    'Motion',
-    'Acessibilidade',
-    'Design',
-    'Código',
-    'Performance',
+  readonly marqueeValueKeys = [
+    'footer.marquee.value.craft',
+    'footer.marquee.value.motion',
+    'footer.marquee.value.accessibility',
+    'footer.marquee.value.design',
+    'footer.marquee.value.code',
+    'footer.marquee.value.performance',
   ];
 
   /** Two identical passes so each marquee loop has no seam. */

@@ -4,4 +4,4 @@ Allow: /
 
 Agentmap: https://caiquenonato.com.br/.well-known/ai-catalog.json
 
-Sitemap: https://caiquenonato.com.br/sitemap.xml
+Sitemap: https://www.caiquenonato.com.br/sitemap.xml

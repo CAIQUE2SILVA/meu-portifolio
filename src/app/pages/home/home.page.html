@@ -40,7 +40,23 @@
 
       <div class="hero-media">
         <span class="hero-media-frame">
-          <img class="hero-photo" src="assets/images/profile.png" [alt]="'hero.photo.alt' | t">
+          <picture>
+            <source
+              type="image/webp"
+              srcset="assets/images/profile.webp 640w, assets/images/profile-800.webp 800w"
+              sizes="(min-width: 768px) 18rem, 16rem"
+            />
+            <img
+              class="hero-photo"
+              src="assets/images/profile-fallback.jpg"
+              width="640"
+              height="960"
+              fetchpriority="high"
+              loading="eager"
+              decoding="async"
+              [alt]="'hero.photo.alt' | t"
+            />
+          </picture>
         </span>
       </div>
     </div>

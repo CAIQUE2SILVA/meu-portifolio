@@ -70,9 +70,9 @@
       <div class="footer-marquee-track">
         @for (pass of marqueePasses; track pass) {
           <ul class="footer-marquee-group">
-            @for (word of marqueeValues; track word) {
+            @for (wordKey of marqueeValueKeys; track wordKey) {
               <li>
-                {{ word }}
+                {{ wordKey | t }}
                 <span class="footer-marquee-star">✳</span>
               </li>
             }

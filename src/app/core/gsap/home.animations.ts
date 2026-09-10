@@ -140,7 +140,6 @@ export function setupHeroParallax(root: HTMLElement, gsapInstance: typeof gsap):
     if (copy) {
       gsapInstance.to(copy, {
         yPercent: copyDrift,
-        autoAlpha: 0,
         ease: 'none',
         scrollTrigger: { ...baseScrollTrigger },
       });
@@ -189,6 +188,7 @@ export function setupSectionReveals(root: HTMLElement, gsapInstance: typeof gsap
           duration: 0.4,
           ease: 'none',
           stagger: 0.03,
+          immediateRender: false,
           scrollTrigger: { trigger: panel, start: 'top 85%', once: true, refreshPriority },
         });
         return;
@@ -209,6 +209,7 @@ export function setupSectionReveals(root: HTMLElement, gsapInstance: typeof gsap
           y: 36,
           duration: 0.9,
           ease: EASE_SIGNATURE,
+          immediateRender: false,
           stagger: { each: 0.055, from: 'start' },
           scrollTrigger: { trigger: panel, start: 'top 76%', once: true, refreshPriority },
         });

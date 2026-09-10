@@ -56,6 +56,10 @@ export function revealLinesOnScroll(
     linesClass: 'reveal-line',
     autoSplit: true,
     onSplit: (self) =>
-      gsapInstance.from(self.lines, { ...maskedLinesVars(stagger), scrollTrigger }),
+      gsapInstance.from(self.lines, {
+        ...maskedLinesVars(stagger),
+        immediateRender: false,
+        scrollTrigger,
+      }),
   });
 }

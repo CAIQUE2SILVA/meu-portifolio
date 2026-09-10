@@ -112,5 +112,11 @@
   "footer.copyright": "© Caique Nonato da Silva. Desenvolvido com Angular.",
   "footer.github.aria": "GitHub",
   "footer.linkedin.aria": "LinkedIn",
-  "footer.whatsapp.aria": "WhatsApp"
+  "footer.whatsapp.aria": "WhatsApp",
+  "footer.marquee.value.craft": "Craft",
+  "footer.marquee.value.motion": "Motion",
+  "footer.marquee.value.accessibility": "Acessibilidade",
+  "footer.marquee.value.design": "Design",
+  "footer.marquee.value.code": "Código",
+  "footer.marquee.value.performance": "Performance"
 }

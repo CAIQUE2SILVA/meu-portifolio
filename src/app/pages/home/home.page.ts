@@ -66,6 +66,7 @@ export class HomePage implements OnDestroy {
   private gsapCtx?: ReturnType<typeof gsap.context>;
   private pendingInit = 0;
   private initGeneration = 0;
+  private anchorScrollRefresh?: () => void;
 
   constructor() {
     effect(() => {
@@ -105,7 +106,21 @@ export class HomePage implements OnDestroy {
       afterNextRender(() => this.scheduleGsapInit(), { injector: this.injector });
     });
 
-    afterNextRender(() => this.viewReady.set(true), { injector: this.injector });
+    afterNextRender(() => {
+      this.viewReady.set(true);
+      this.bindAnchorScrollRefresh();
+    }, { injector: this.injector });
+  }
+
+  /** Re-sync ScrollTrigger after fragment jumps so in-view sections stay readable. */
+  private bindAnchorScrollRefresh(): void {
+    this.anchorScrollRefresh = (): void => {
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+      });
+    };
+
+    window.addEventListener('hashchange', this.anchorScrollRefresh);
   }
 
   private teardownGsap(): void {
@@ -161,6 +176,9 @@ export class HomePage implements OnDestroy {
   }
 
   ngOnDestroy(): void {
+    if (this.anchorScrollRefresh) {
+      window.removeEventListener('hashchange', this.anchorScrollRefresh);
+    }
     this.teardownGsap();
   }
 }

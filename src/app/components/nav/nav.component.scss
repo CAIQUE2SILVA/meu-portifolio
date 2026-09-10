@@ -38,7 +38,7 @@ nav > div > div[data-nav-links] {
   gap: 24px;
   font-size: 14px;
   font-weight: 600;
-  color: #475569;
+  color: var(--color-muted);
 }
 
 nav a:hover {

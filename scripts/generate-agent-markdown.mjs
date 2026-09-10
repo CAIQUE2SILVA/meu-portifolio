@@ -68,21 +68,35 @@ const SKILL_CATEGORIES = [
   { titleKey: 'skills.itops.title', skills: ['Windows Server', 'Active Directory', 'Redes corporativas', 'Service Desk (N1–N3)', 'Gestão de SLAs', 'Gestão de ativos', 'ITIL'] },
 ];
 
-const EXPERIENCE = {
-  roleKey: 'experience.exclusiva.role',
-  company: 'Exclusiva',
-  periodKey: 'experience.exclusiva.period',
-  locationKey: 'experience.exclusiva.location',
-  highlightKeys: [
-    'experience.exclusiva.highlight.0',
-    'experience.exclusiva.highlight.1',
-    'experience.exclusiva.highlight.2',
-    'experience.exclusiva.highlight.3',
-    'experience.exclusiva.highlight.4',
-    'experience.exclusiva.highlight.5',
-    'experience.exclusiva.highlight.6',
-  ],
-};
+const EXPERIENCES = [
+  {
+    roleKey: 'experience.exclusivaFe.role',
+    company: 'Exclusiva',
+    periodKey: 'experience.exclusivaFe.period',
+    locationKey: 'experience.exclusivaFe.location',
+    highlightKeys: [
+      'experience.exclusivaFe.highlight.0',
+      'experience.exclusivaFe.highlight.1',
+      'experience.exclusivaFe.highlight.2',
+      'experience.exclusivaFe.highlight.3',
+      'experience.exclusivaFe.highlight.4',
+      'experience.exclusivaFe.highlight.5',
+    ],
+  },
+  {
+    roleKey: 'experience.exclusivaTi.role',
+    company: 'Exclusiva',
+    periodKey: 'experience.exclusivaTi.period',
+    locationKey: 'experience.exclusivaTi.location',
+    highlightKeys: [
+      'experience.exclusivaTi.highlight.0',
+      'experience.exclusivaTi.highlight.1',
+      'experience.exclusivaTi.highlight.2',
+      'experience.exclusivaTi.highlight.3',
+      'experience.exclusivaTi.highlight.4',
+    ],
+  },
+];
 
 const EDUCATION = [
   { titleKey: 'educacao.item1.title', institutionKey: 'educacao.item1.institution' },
@@ -140,14 +154,16 @@ function sectionForLocale(dict, locale) {
 
   lines.push(`## ${t(dict, 'experiencia.title')}`);
   lines.push('');
-  lines.push(`### ${t(dict, EXPERIENCE.roleKey)} — ${EXPERIENCE.company}`);
-  lines.push('');
-  lines.push(`_${t(dict, EXPERIENCE.periodKey)} · ${t(dict, EXPERIENCE.locationKey)}_`);
-  lines.push('');
-  for (const key of EXPERIENCE.highlightKeys) {
-    lines.push(`- ${t(dict, key)}`);
+  for (const experience of EXPERIENCES) {
+    lines.push(`### ${t(dict, experience.roleKey)} — ${experience.company}`);
+    lines.push('');
+    lines.push(`_${t(dict, experience.periodKey)} · ${t(dict, experience.locationKey)}_`);
+    lines.push('');
+    for (const key of experience.highlightKeys) {
+      lines.push(`- ${t(dict, key)}`);
+    }
+    lines.push('');
   }
-  lines.push('');
 
   lines.push(`## ${t(dict, 'projetos.title')}`);
   lines.push('');

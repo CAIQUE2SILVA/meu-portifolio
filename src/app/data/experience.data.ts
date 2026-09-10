@@ -13,6 +13,8 @@ export const EXPERIENCES: Experience[] = [
       'experience.exclusiva.highlight.2',
       'experience.exclusiva.highlight.3',
       'experience.exclusiva.highlight.4',
+      'experience.exclusiva.highlight.5',
+      'experience.exclusiva.highlight.6',
     ],
   },
 ];

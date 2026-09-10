@@ -18,7 +18,7 @@
   "hero.scrollCue": "Scroll to explore",
   "hero.name": "Caique Nonato da Silva",
   "hero.role": "Front-end Developer | Angular · Ionic · TypeScript",
-  "hero.bio": "I build mobile-first modules for an internal ERP at <strong>Exclusiva</strong> — <strong>5+ years</strong> with Angular, Ionic, Capacitor and TypeScript from requirements to production. I also coordinate IT and L1–L3 support.",
+  "hero.bio": "Front-end developer at <strong>Exclusiva</strong> for <strong>5+ years</strong>, building mobile-first internal ERP modules with Angular, Ionic, Capacitor and TypeScript — from requirements to production.",
   "hero.cta.projects": "View Projects",
   "hero.cta.cv": "Open Resume (PDF)",
   "hero.cta.whatsapp": "Chat on WhatsApp",
@@ -26,7 +26,7 @@
 
   "sobre.title": "About me",
   "sobre.p1": "At <strong>Exclusiva</strong>, I'm the front-end reference for the internal ERP: I turn business rules into mobile-first screens with <strong>Angular</strong>, <strong>Ionic</strong>, <strong>Capacitor</strong>, <strong>TypeScript</strong>, <strong>Angular Material</strong> and <strong>Chart.js</strong>, from requirements gathering to production delivery.",
-  "sobre.p2": "My work covers <strong>sales/POS</strong>, <strong>campaigns</strong>, <strong>field supervision</strong>, <strong>HR</strong>, <strong>security and permissions</strong>, <strong>finance</strong> and <strong>e-commerce UX</strong>. In parallel, I coordinate <strong>IT</strong> and L1–L3 support with <strong>GLPI</strong>, <strong>Zabbix</strong> and <strong>Active Directory</strong> — which helps ship stable code to end users.",
+  "sobre.p2": "My work covers <strong>sales/POS</strong>, <strong>campaigns</strong>, <strong>field supervision</strong>, <strong>HR</strong>, <strong>security and permissions</strong>, <strong>finance</strong> and <strong>e-commerce UX</strong>. I also work in parallel coordinating <strong>IT</strong> and L1–L3 support (<strong>GLPI</strong>, <strong>Zabbix</strong>, <strong>Active Directory</strong>).",
   "sobre.studying": "<strong>Currently studying:</strong> Docker, Node.js and C# — expanding my toolkit to connect front-end apps to APIs and backend services.",
   "sobre.contacts.title": "Quick Contacts",
   "sobre.contacts.email.aria": "Email",
@@ -42,8 +42,8 @@
   "skills.itops.title": "IT & Operations",
 
   "experiencia.title": "Professional Experience",
-  "experience.exclusiva.role": "Front-end Developer / IT Coordinator",
-  "experience.exclusiva.period": "Jul/2020 – Jan/2026",
+  "experience.exclusiva.role": "Front-end Developer",
+  "experience.exclusiva.period": "Jul/2020 – Present",
   "experience.exclusiva.location": "São Paulo, SP",
   "experience.exclusiva.highlight.0": "Build mobile-first ERP modules with Angular, Ionic, Capacitor and TypeScript — from requirements gathering to production delivery.",
   "experience.exclusiva.highlight.1": "Built sales and POS flows: client registration, orders and operational reports with Angular Material and Chart.js.",

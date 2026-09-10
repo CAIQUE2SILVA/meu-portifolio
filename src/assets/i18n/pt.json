@@ -18,7 +18,7 @@
   "hero.scrollCue": "Role para explorar",
   "hero.name": "Caique Nonato da Silva",
   "hero.role": "Desenvolvedor Front-end | Angular · Ionic · TypeScript",
-  "hero.bio": "Construo módulos mobile-first de um ERP interno na <strong>Exclusiva</strong> há <strong>5+ anos</strong> — Angular, Ionic, Capacitor e TypeScript do levantamento de requisitos ao deploy. Também coordeno TI e suporte N1–N3.",
+  "hero.bio": "Desenvolvedor Front-end na <strong>Exclusiva</strong> há <strong>5+ anos</strong>, construindo módulos mobile-first de ERP interno com Angular, Ionic, Capacitor e TypeScript — do levantamento de requisitos ao deploy.",
   "hero.cta.projects": "Ver Projetos",
   "hero.cta.cv": "Abrir Currículo (PDF)",
   "hero.cta.whatsapp": "Falar no WhatsApp",
@@ -26,7 +26,7 @@
 
   "sobre.title": "Sobre mim",
   "sobre.p1": "Na <strong>Exclusiva</strong>, atuo como referência de front-end no ERP interno: traduzo regras de negócio em telas mobile-first com <strong>Angular</strong>, <strong>Ionic</strong>, <strong>Capacitor</strong>, <strong>TypeScript</strong>, <strong>Angular Material</strong> e <strong>Chart.js</strong>, do levantamento de requisitos à entrega em produção.",
-  "sobre.p2": "Minhas entregas cobrem <strong>vendas/PDV</strong>, <strong>campanhas</strong>, <strong>supervisão de campo</strong>, <strong>RH</strong>, <strong>segurança e permissões</strong>, <strong>financeiro</strong> e <strong>UX do e-commerce</strong>. Em paralelo, coordeno <strong>TI</strong> e suporte N1–N3 com <strong>GLPI</strong>, <strong>Zabbix</strong> e <strong>Active Directory</strong> — o que ajuda a levar código estável até o usuário final.",
+  "sobre.p2": "Minhas entregas cobrem <strong>vendas/PDV</strong>, <strong>campanhas</strong>, <strong>supervisão de campo</strong>, <strong>RH</strong>, <strong>segurança e permissões</strong>, <strong>financeiro</strong> e <strong>UX do e-commerce</strong>. Também atuo em paralelo com coordenação de <strong>TI</strong> e suporte N1–N3 (<strong>GLPI</strong>, <strong>Zabbix</strong>, <strong>Active Directory</strong>).",
   "sobre.studying": "<strong>Atualmente estudando:</strong> Docker, Node.js e C# — ampliando o repertório para integrar front-end a APIs e serviços backend.",
   "sobre.contacts.title": "Contatos Rápidos",
   "sobre.contacts.email.aria": "Email",
@@ -42,8 +42,8 @@
   "skills.itops.title": "TI & Operações",
 
   "experiencia.title": "Experiência Profissional",
-  "experience.exclusiva.role": "Desenvolvedor Front-end / Coordenador de TI",
-  "experience.exclusiva.period": "Jul/2020 – Jan/2026",
+  "experience.exclusiva.role": "Desenvolvedor Front-end",
+  "experience.exclusiva.period": "Jul/2020 – Atual",
   "experience.exclusiva.location": "São Paulo, SP",
   "experience.exclusiva.highlight.0": "Desenvolvo módulos mobile-first de ERP interno com Angular, Ionic, Capacitor e TypeScript — do levantamento de requisitos à entrega em produção.",
   "experience.exclusiva.highlight.1": "Construí fluxos de vendas e PDV: cadastro de clientes, pedidos e relatórios operacionais com Angular Material e Chart.js.",

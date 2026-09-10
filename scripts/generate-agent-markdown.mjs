@@ -87,7 +87,7 @@ const EDUCATION = [
   { titleKey: 'educacao.item3.title', institutionKey: 'educacao.item3.institution' },
 ];
 
-const SITE_URL = 'https://caique-portifolio.netlify.app';
+const SITE_URL = 'https://caiquenonato.com.br';
 const PROFILE_IMAGE = `${SITE_URL}/assets/images/profile.png`;
 
 function stripHtml(text) {

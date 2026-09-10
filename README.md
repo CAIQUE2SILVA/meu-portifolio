@@ -6,7 +6,7 @@ Portfolio profissional interativo em **Angular 19** (standalone) para apresentar
 
 ## Demonstração
 
-**Acesse em:** [caique-portifolio.netlify.app](https://caique-portifolio.netlify.app/home)
+**Acesse em:** [caiquenonato.com.br](https://caiquenonato.com.br/)
 
 ## Stack do projeto
 

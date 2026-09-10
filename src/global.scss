@@ -29,6 +29,16 @@ a {
   position: relative;
 }
 
+/* Fixed nav offset for fragment / smooth-scroll targets */
+#inicio,
+#sobre,
+#skills,
+#experiencia,
+#projetos,
+#educacao {
+  scroll-margin-top: 88px;
+}
+
 /*
  * SplitText line wrappers. The plugin sets `overflow: clip` on the mask itself;
  * this only promotes the moving line so masked reveals stay on the compositor.

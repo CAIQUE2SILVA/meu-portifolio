@@ -375,6 +375,11 @@
   .footer-copy {
     text-align: left;
   }
+
+  /* GSAP owns marquee transform on desktop; CSS animation stays as mobile fallback. */
+  .footer-marquee.is-gsap-driven .footer-marquee-track {
+    animation: none;
+  }
 }
 
 @media (min-width: 900px) {

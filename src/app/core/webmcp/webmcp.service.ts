@@ -57,7 +57,7 @@ export class WebMcpService {
             title: this.language.t(project.titleKey),
             stack: project.stack,
             description: this.language.t(project.descriptionKey),
-            repoUrl: project.repoUrl,
+            repoUrl: project.repoUrl ?? null,
             demoUrl: project.demoUrl ?? null,
           })),
         }),

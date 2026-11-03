@@ -70,6 +70,11 @@
   "projetos.hint": "Scroll to browse",
   "projetos.kind": "Project",
 
+  "projects.ela.title": "Ela Arquitetura & Co.",
+  "projects.ela.description": "Real-client institutional website for an architecture studio, with a lilac/navy visual identity and sections for services, projects and contact.",
+  "projects.ela.implementation": "React Router v7 + Vite front-end, deployed on Cloudflare Pages, with indexable SEO, content-signal and Web Analytics.",
+  "projects.ela.benefit": "Professional online presence for the client, with solid performance and visitor metrics, ready for a custom domain.",
+
   "projects.casamento.title": "Wedding Website with RSVP",
   "projects.casamento.description": "Guest-facing site for RSVP and event information — with data updated in real time.",
   "projects.casamento.implementation": "Angular with guest flows, authentication and live persistence via Firebase/Supabase.",

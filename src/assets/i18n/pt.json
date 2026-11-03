@@ -70,6 +70,11 @@
   "projetos.hint": "Role para navegar",
   "projetos.kind": "Projeto",
 
+  "projects.ela.title": "Ela Arquitetura & Co.",
+  "projects.ela.description": "Site institucional real para escritório de arquitetura, com identidade visual lilás/navy e seções de serviços, projetos e contato.",
+  "projects.ela.implementation": "Front-end em React Router v7 + Vite, deploy na Cloudflare Pages, SEO indexável, content-signal e Web Analytics.",
+  "projects.ela.benefit": "Presença digital profissional para a cliente, com boa performance e métricas de acesso, pronta para domínio próprio.",
+
   "projects.casamento.title": "Site de Casamento com RSVP",
   "projects.casamento.description": "Site para convidados confirmarem presença e consultarem informações do evento — com dados atualizados em tempo real.",
   "projects.casamento.implementation": "Angular com fluxos de convidados, autenticação e persistência com atualizações live via Firebase/Supabase.",

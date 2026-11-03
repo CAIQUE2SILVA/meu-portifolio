@@ -2,6 +2,15 @@ import { Project } from '../models/project.model';
 
 export const PROJECTS: Project[] = [
   {
+    id: 'ela-arquitetura',
+    titleKey: 'projects.ela.title',
+    stack: ['React Router v7 · Vite · Cloudflare Pages'],
+    descriptionKey: 'projects.ela.description',
+    implementationKey: 'projects.ela.implementation',
+    benefitKey: 'projects.ela.benefit',
+    demoUrl: 'https://ela-arquitetura.pages.dev/',
+  },
+  {
     id: 'casamento-website',
     titleKey: 'projects.casamento.title',
     stack: ['Angular + Firebase + Supabase'],

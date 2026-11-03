@@ -17,6 +17,14 @@ const en = JSON.parse(readFileSync(join(root, 'src/assets/i18n/en.json'), 'utf8'
 
 const PROJECTS = [
   {
+    titleKey: 'projects.ela.title',
+    stack: ['React Router v7 · Vite · Cloudflare Pages'],
+    descriptionKey: 'projects.ela.description',
+    implementationKey: 'projects.ela.implementation',
+    benefitKey: 'projects.ela.benefit',
+    demoUrl: 'https://ela-arquitetura.pages.dev/',
+  },
+  {
     titleKey: 'projects.casamento.title',
     stack: ['Angular + Firebase + Supabase'],
     descriptionKey: 'projects.casamento.description',
@@ -178,7 +186,9 @@ function sectionForLocale(dict, locale) {
     lines.push('');
     lines.push(`- **${t(dict, 'projetos.implementation')}:** ${t(dict, project.implementationKey)}`);
     lines.push(`- **${t(dict, 'projetos.benefit')}:** ${t(dict, project.benefitKey)}`);
-    lines.push(`- **Repo:** ${project.repoUrl}`);
+    if (project.repoUrl) {
+      lines.push(`- **Repo:** ${project.repoUrl}`);
+    }
     if (project.demoUrl) {
       lines.push(`- **Demo:** ${project.demoUrl}`);
     }
